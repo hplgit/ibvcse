@@ -1,0 +1,100 @@
+# Slides for FYS-KJM4480
+TITLE: Integrating computations, mathematics, physics and chemistry in undergraduate biology programs
+AUTHOR: Computing in Science Education, University of Oslo
+DATE: September 22 2014
+
+!split
+===== Overarching questions =====
+
+!bblock 
+* What kind of education do we want to give our undergraduate students and which skills are needed by biology students? 
+* Can we integrate programming, computations, mathematics and topics from physical sciences like physics and chemistry, in a seamless way in the basic biology (including all subdisciplines at IBV) education? 
+* Do we need to teach mathematics, physics, computations, chemistry etc as separate topics/courses, often totally disconnected from the interests and the needs of biology students and their teachers? 
+* Can we teach these topics in such a way that we can develop a better intuition and understanding of say computations and mathematics? And topics from other disciplines as well.
+* Would a problem based education suit better the needs of undergraduate programs in biology?
+* Would it be appropriate to  simply label all courses the first two-years of study as BIO-xxx?  
+* Can this serve as a model for other undergraduate programs as well? 
+!eblock
+
+
+!split
+===== Possible pilot project =====
+
+!bblock 
+* Set up a team of dedicated teachers (biology and CSE oriented people from other disciplines) and PhD, MSc and undergraduate students that will develop examples of topics to integrate  in biology courses.  
+* The recently established CINPLA@IBV project (Endringsmiljoe at MN@UiO) has hired four PhD students for four years. These PhD students can as part of their teaching duties develop several examples for biology courses  that integrate math and computations.  
+* The PhD students can form the hard core of the working group, in close collaboration with teachers from IBV and other CSE teachers and MSc and undergraduate students supported by the CSE project.
+* The duration of the project could be one year, with the final aim to develop a series of cases to present at an education workshop at IBV.
+* These cases will form the basis for a workshop next year for teachers at IBV, with an emphasis on integrating computations and math. 
+* The exit of this workshop can pave the road for step two, namely developing undergraduate modules that integrate several disciplines in biology courses. 
+* Time-line: two-three  years to develop the first integrated pilot.
+!eblock
+
+
+
+
+!split 
+===== Example of possible cases, *Predator-Prey* model  ===== 
+!bblock Aim: introduce the relevant mathematics and computations in order to develop student intuition about the scientific method 
+* Taught in traditional math courses: differential equations. Standard situation, after some few preliminary words about the relevance and possible examples, the main emphasis is on the mathematical properties of the equations, their solution, uniqueness etc etc. 
+* This if often disconnected from the background of students in a particular undergraduate program
+* Similarly, topics like writing a program, reading data from file, plotting etc are normally taught in a course on programming. 
+* How can we change this?
+!eblock
+
+
+!split 
+===== Example of possible cases, *Predator-Prey* model  ===== 
+!bblock 
+* The top-down approach: starting with the Lotka-Volterra equation and discuss how to solve. The equation expresses the population changes through time according to the pair of equations:
+!bt
+\[
+\frac{dx}{dt} = x(\alpha - \beta y)\\
+\frac{dy}{dt} = - y(\gamma - \delta  x)
+\]
+!et 
+* Here $x$ is the number of preys and $y$ the number of predators. The other variables describe the interactions between the two species.
+* The rates $dx/dt$ and $dy/dt$ represent the growth rates over time.
+* The equation is then used to link the math  to experimental data on say foxes and hares in a forest.
+!eblock
+
+
+!split 
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
+!bblock 
+* The bottom-up approach: start with experimental data and discuss the methods which have been used to collect the data, the assumptions, the aims etc. That is, expose the students to the general thinking  why these data have been collected and motivate for the scientific method. 
+* Where appropriate the students should do the experiment(s) needed to collect the data.
+* The first programming tasks would then be taught together with the data collection process, with an emphasis on reading and writing data to/from file and making plots of the data (develops the concept of a graph, here discrete function in time and setting up units).
+* The students can then be triggered to see if they, from the plotted data, can discover patterns or regularities. This strengthens a research-driven intuition development. 
+!eblock
+
+
+!split 
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
+!bblock 
+* After the first programming experience with reading and writing to/from file and plotting data, it is time to start modeling the data.
+* The simplest possible is to forward a hypothesis based on changes in time of the populations, setting the problem up  as  intuitive difference equations  where the derivatives are simpley replaced by
+!bt
+\[
+\frac{dx}{dt} \approx \frac{x(t+\Delta t)-x(t)}{\Delta t}
+\]
+!et
+* One can at this stage bring in the mathematics of difference equations, plain arithmetics here.
+* And easily show how one can program these. Elements like variables, arrays, loops and plotting are then included in an integrated and natural way. 
+* Based on the data, one can try to find optimal parameters $\alpha$, $\beta$, $\gamma$ and $\delta$ that reproduce the experimental data.  And so on.
+!eblock
+
+
+
+!split 
+===== Example of possible cases, Model spread of diseases model  ===== 
+!bblock 
+* Hans Petter, kan du legge til dine ting fra slidene om modellering av sjukdom?
+!eblock
+
+
+!split 
+===== Example of possible cases, Genomics  ===== 
+!bblock 
+* Skal vi si noe om dette ogsaa eller holder det? Her kan vi snakke om feks enkle Markov DNA sekvenser
+!eblock
