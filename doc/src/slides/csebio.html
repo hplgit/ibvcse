@@ -75,7 +75,10 @@ div { text-align: justify; text-justify: inter-word; }
                None,
                '___sec2'),
               (' Examples: *Predator-Prey* model  ', 2, None, '___sec3'),
-              (' Examples: *Predator-Prey* model  ', 2, None, '___sec4'),
+              (' Examples: Simple *Predator-Prey* model  ',
+               2,
+               None,
+               '___sec4'),
               (' Hudson bay data ', 2, None, '___sec5'),
               (' Example of possible cases, *Predator-Prey* model  ',
                2,
@@ -113,11 +116,15 @@ div { text-align: justify; text-justify: inter-word; }
                2,
                None,
                '___sec14'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
+              (' Example of possible cases, *Predator-Prey* model  ',
                2,
                None,
                '___sec15'),
-              (' Example of possible cases, Genomics  ', 2, None, '___sec16')]}
+              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
+               2,
+               None,
+               '___sec16'),
+              (' Example of possible cases, Genomics  ', 2, None, '___sec17')]}
 end of tocinfo -->
 
 <body>
@@ -209,9 +216,9 @@ MathJax.Hub.Config({
 <p>
 
 <ul>
-<li> Typical situation is that math courses are taught in a traditional way. Standard situation: after some few preliminary words about the relevance and possible examples, the main emphasis is on the mathematical properties of the equations, their solutions, uniqueness etc etc.</li> 
-<li> This if often disconnected from the background of students in a particular undergraduate program</li>
-<li> Similarly, topics like writing a program, reading data from file, plotting etc are normally taught in a disconnected course on programming.</li> 
+<li> A typical situation is that math courses are taught as separate courses. After some few preliminary words about the relevance and possible examples, the main emphasis is on the mathematical properties of the equations, their solutions, uniqueness etc etc.</li> 
+<li> This may be  disconnected from the background and interests of students in a specific undergraduate program</li>
+<li> Similarly, topics like writing a program, reading data from file, plotting etc are normally taught in a disconnected course on programming. This would apply to basic physics and chemistry courses as well.</li> 
 <li> How can we change this?</li>
 <li> Integrate mathematics, computations and other disciplines in biology courses. The mathematical models, relevant physics/chemistry and other topics are introduced in a coherent way in biology courses.</li> 
 </ul>
@@ -240,7 +247,7 @@ The population dynamics of a simple predator-prey system  is a classical example
 <p>
 <!-- !split  -->
 
-<h2>Examples: <em>Predator-Prey</em> model   <a name="___sec4"></a></h2>
+<h2>Examples: Simple <em>Predator-Prey</em> model   <a name="___sec4"></a></h2>
 <div class="alert alert-block alert-block alert-text-normal">
 <b>Lotka-Volterra model and data from Hudson bay.</b>
 <p>
@@ -248,8 +255,8 @@ The population dynamics of a simple predator-prey system  is a classical example
 <ul>
  <li> In this example we start with the data on hares and lynx collected from furs in Canada. The data show distinct oscillations.</li>
  <li> The first step in the scientific investigation is thus to plot these data, introducing thereby simple programming issues like what is a file, how do I read from a file and how do I plot the data. When analyzing these data from a biological standpoint one can then integrate the first steps in programming.</li> 
- <li> The next step is to try to model these data by simple finite difference equations. These equations provide an intuitive way to introduce mathematics. At later stages one can replace these difference equations with differential equations.</li> 
- <li> The equations will also contain parameters which can fitted by using the data. At a later stage one can introduce tools like least-square fitting (this can come later)</li>
+ <li> The next step is to try to model these data by simple finite difference equations. These equations provide an intuitive way to introduce the relevant mathematics. At later stages one can replace these difference equations with differential equations if appropriate and pedagogical relevant.</li> 
+ <li> The equations will also contain parameters which can fitted using the available data. At a later stage one can introduce tools like least-square fitting (this can come later) and let the students write a program which implements this. The necessary understanding of the pertinent statistical analysis and mathematics can then be introduced.</li> 
  <li> This model can then be extended to models for the spread of diseases.</li> 
  <li> And obviously, can the model which has been developed be applied to other predator-prey systems?</li>
 </ul>
@@ -313,13 +320,13 @@ One reason that this particular system has been so extensively studied is that t
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
-The first step is now to 
+The first step is to 
 
 <ul>
 <li> make a file which contains the data, with columns containing year and data on hares and lynx. This will teach students the concept of a file and introduce practicalities like using terminals and editors.</li>
 
 <ul>
- <li> The next step is to teach the first basic programming elements, including things like what is a program, files, reading from file and plotting.  The aim is to now to read the above data and plot them, exemplified here in a simple python (we recommend python as the programming language) program. The program uses the <em>matplotlib</em> package.</li> 
+ <li> The next step is to teach the first basic programming elements, including topics like understanding what a program is, how to define files, reading from file and plotting and similar operations.  The aim is to be able to read the above data and plot them, exemplified here in a simple python (we recommend python as the programming language) program. The program uses the <em>matplotlib</em> package.</li> 
 </ul>
 
 </ul>
@@ -329,16 +336,15 @@ The first step is now to
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">from</span>  <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> pyplot <span style="color: #008000; font-weight: bold">as</span> plt
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> rc, rcParams
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.units</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">units</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.ticker</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ticker</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
 
 rc(<span style="color: #BA2121">&#39;text&#39;</span>,usetex<span style="color: #666666">=</span><span style="color: #008000">True</span>)
-rc(<span style="color: #BA2121">&#39;font&#39;</span>,<span style="color: #666666">**</span>{<span style="color: #BA2121">&#39;family&#39;</span>:<span style="color: #BA2121">&#39;serif&#39;</span>,<span style="color: #BA2121">&#39;serif&#39;</span>:[<span style="color: #BA2121">&#39;Separation energy for nickel isotopes&#39;</span>]})
 title(<span style="color: #BA2121">r&#39;{\bf Population of hares and lynx from 1900 to 1920 (x1000)}&#39;</span>, fontsize<span style="color: #666666">=20</span>)     
 <span style="color: #408080; font-style: italic"># Load in data file</span>
 popdata <span style="color: #666666">=</span> loadtxt(<span style="color: #BA2121">&quot;popdata.dat&quot;</span>)
@@ -351,14 +357,13 @@ axis([<span style="color: #666666">1895</span>,<span style="color: #666666">1925
 xlabel(<span style="color: #BA2121">r&#39;Year&#39;</span>,fontsize<span style="color: #666666">=20</span>)
 ylabel(<span style="color: #BA2121">r&#39;Numbers of hares and lynx &#39;</span>,fontsize<span style="color: #666666">=20</span>)
 <span style="color: #408080; font-style: italic"># Then plot</span>
-plot(year, hares ,<span style="color: #BA2121">&#39;b-*&#39;</span>,   year, lynx, <span style="color: #BA2121">&#39;r:.&#39;</span>,  markersize<span style="color: #666666">=7</span>)
+plt<span style="color: #666666">.</span>plot(year, hares ,<span style="color: #BA2121">&#39;b-*&#39;</span>,   year, lynx, <span style="color: #BA2121">&#39;r:.&#39;</span>,  markersize<span style="color: #666666">=7</span>)
 legend((<span style="color: #BA2121">&#39;Hares&#39;</span>,<span style="color: #BA2121">&#39;Lynx&#39;</span>),
            <span style="color: #BA2121">&#39;upper right&#39;</span>, shadow<span style="color: #666666">=</span><span style="color: #008000">False</span>, fancybox<span style="color: #666666">=</span><span style="color: #008000">False</span>,prop<span style="color: #666666">=</span>{<span style="color: #BA2121">&quot;size&quot;</span>:<span style="color: #666666">18</span>})
 legend(loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper right&#39;</span>)
 savefig(<span style="color: #BA2121">&#39;popdata.pdf&#39;</span>, format<span style="color: #666666">=</span><span style="color: #BA2121">&#39;pdf&#39;</span>)
 
-show()
-<span style="color: #408080; font-style: italic"># When running with ipython notebook, uses the --pylab inline option to get the figure in the ipython notebook</span>
+plt<span style="color: #666666">.</span>show()
 </pre></div>
 <p>
 A very useful addendum here is to provide the students with information on how to use <em>ipython notebook</em>. Handing material in this format, will allow students to make their own electronic notebooks, change the text, add, improve upon, do exercises etc etc.
@@ -385,7 +390,7 @@ We see from the plot that there are indeed fluctuations.
 We would like to create a mathematical model that explains these population fluctuations. Ecologists have predicted that in a simple predator-prey system that a rise in prey population is followed (with a lag) by a rise in the predator population. When the predator population is sufficiently high, then the prey population begins dropping. After the prey population falls, then the predator population falls, which allows the prey population to recover and completes one cycle of this interaction. Thus, we see that qualitatively oscillations occur. Can a mathematical model predict this? What causes cycles to slow or speed up? What affects the amplitude of the oscillation or do you expect to see the oscillations damp to a stable equilibrium? The models tend to ignore factors like climate and other complicating factors. How significant are these?   
 
 <ul>
-<li> The top-down approach would  with the Lotka-Volterra equation and discuss how to solve it. The equation expresses the population changes through time according to the pair of equations:</li>
+<li> The top-down approach would be to present the Lotka-Volterra equation and discuss how to solve it. The equation expresses the population changes through time according to the pair of equations:</li>
 </ul>
 
 $$
@@ -411,10 +416,10 @@ $$
 <p>
 
 <ul>
-<li> The bottom-up approach: start with experimental data and discuss the methods which have been used to collect the data, the assumptions, the aims etc. That is, expose the students to the general thinking  why these data have been collected and motivate for the scientific method.</li> 
+<li> The bottom-up approach: start with experimental data and discuss the methods which have been used to collect the data, the assumptions, the aims etc. That is, expose the students to the theory and assumptions   behind the data that have been collected and motivate for the scientific method.</li> 
 <li> Where appropriate the students should do the experiment(s) needed to collect the data.</li>
-<li> The first programming tasks would then be taught together with the data collection process, with an emphasis on reading and writing data to/from file and making plots of the data (develops the concept of a graph, here discrete function in time and setting up units).</li>
-<li> The students can then be triggered to see if they, from the plotted data, can discover patterns or regularities. This strengthens a research-driven intuition development.</li> 
+<li> The first programming tasks would then be taught together with the data collection process, with an emphasis on reading and writing data to/from file and making plots of the data.</li>
+<li> The students can then be triggered to see if they can discover patterns or regularities. This strengthens a research-driven intuition about the scientific method and specific systems.</li> 
 </ul>
 </div>
 
@@ -429,7 +434,7 @@ $$
 
 <ul>
 <li> After the first programming experience with reading and writing to/from file and plotting data, it is time to start modeling the data.</li>
-<li> The simplest possibility is to forward a hypothesis based on changes in time of the populations, setting the problem up  as  intuitive difference equations.</li>
+<li> The simplest possibility is to forward a hypothesis based on changes in time of the populations, setting the problem up  as  simple and intuitive difference equations.</li>
 <li> We introduce also the concept of a function of time. Here we label the number of hares as function of time as \( H(t) \) and the number of lynx as \( L(t) \).</li> 
 <li> The change in the population of hares from year \( t \) to a year \( t+\Delta t \) (where \( \Delta t \) is the change) is then given by</li> 
 </ul>
@@ -460,7 +465,7 @@ $$
 With the rates by which the populations of hares and lynx change, we can now start modeling their interactions.
 
 <ul>
-<li> We have now the so-called initial values (initial conditions), that is, if we use the year 1900 as year zero, then we have from the above table</li>
+<li> We need to define the  so-called initial values (initial conditions), that is, if we use the year 1900 as year zero, we have from the above table</li>
 </ul>
 
 $$
@@ -484,9 +489,7 @@ $$
 \frac{H(t+\Delta t)-H(t)}{\Delta t}=\alpha H(t)-\beta H(t)L(t),
 $$
 
-where \( \beta \) is another constant to be determined. 
-
-
+where \( \beta \) is another constant to be determined.
 </div>
 
 
@@ -499,13 +502,13 @@ where \( \beta \) is another constant to be determined.
 <p>
 
 <p>
-For the time development of the lynx population, we assume that the primary growth for the lynx population depends on sufficient food for raising lynx kittens, which implies an adequate source of nutrients from predation on hares. Thus, the growth of the lynx population is similar to the death rate for the hare population with a different constant of proportionality. We model as an interaction between hares and lynx as
+For the time development of the lynx population, we assume that the primary growth for the lynx population depends on sufficient food for raising lynx kittens, which implies an adequate source of nutrients from predation on hares. Thus, the growth of the lynx population is similar to the death rate for the hare population with a different constant of proportionality. We model this as an interaction between hares and lynx as
 $$
 \frac{L(t+\Delta t)-L(t)}{\Delta t}=\gamma L(t)H(t),
 $$
 
 where \( \gamma \) is a constant to be determined. 
-We assume then that the primary loss of lynx is due to declines in their own population, leading then to the following growth rate
+We assume that the primary loss of lynx is due to declines in their own population, leading then to the following growth rate
 $$
 \frac{L(t+\Delta t)-L(t)}{\Delta t}=\gamma L(t)H(t)-\delta L(t),
 $$
@@ -561,7 +564,7 @@ stage we will show them how to determine these parameters.
 <p>
 
 <ul>
-<li> The next step now is to write a program which, with the given initial conditions, solves these two equations from an initial time</li>
+<li> The next step is to write a program which, with the given initial conditions, solves these two equations from an initial time</li>
 </ul>
 
 \( t_0 \) to a given final time. 
@@ -583,8 +586,7 @@ In this model, the students could try to solve these equations by using 1900 as 
 
 <ul>
 <li> The program will be rather simple but contains important elements like function constructions, loops, if statements and the definition of one-dimensional arrays which contain the solutions as function of time.</li> 
-<li> With the first project where students are asked to make a file containing the data and plot them, the next project is actually to write a program with the above elements and test the model.</li> 
-<li> Hans Petter, skal vi legge til et program?  Vil det kunne vaere nyttig for diskusjonen? Jeg kan skrive et enkelt python program her, hvor vi demonstrerer dette.</li> 
+<li> With the first project where students are asked to make a file containing the data and plot them, the next project is actually to write a program with the above elements and test the model against data.</li>
 </ul>
 </div>
 
@@ -592,7 +594,82 @@ In this model, the students could try to solve these equations by using 1900 as 
 <p>
 <!-- !split  -->
 
-<h2>Example of possible cases, <em>Predator-Prey</em> model, the bottom-up approach   <a name="___sec15"></a></h2>
+<h2>Example of possible cases, <em>Predator-Prey</em> model   <a name="___sec15"></a></h2>
+<div class="alert alert-block alert-block alert-text-normal">
+<b>The code.</b>
+<p>
+If we perform a least-square fitting, we can find optimal values for the parameters \( \alpha\beta\gamma\delta \). Here we will simply use these parameters and write a simple program which solves the two equations. The optimal parameters are \( \alpha=0.4807 \), \( \beta=0.02482 \), \( \gamma=0.9272 \) and \( \delta=0.02756 \). These parameters result in aslightly modified initial conditions, namely \( H(0) = 34.91 \) and \( L(0)=3.857 \). With these parameters we are now ready to solve the equations and plot these data together with the 'experimental' values.  
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">from</span>  <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> pyplot <span style="color: #008000; font-weight: bold">as</span> plt
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> rc, rcParams
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.units</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">units</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.ticker</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ticker</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
+
+
+<span style="color: #408080; font-style: italic"># Define function to solve the difference equations</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">SolveEquations</span>(year, NumHares, NumLynx, InitialTime, FinalTime, n):
+<span style="color: #408080; font-style: italic">#   Hardcoding of least-square optimized parameters</span>
+    a, b, c, d <span style="color: #666666">=</span> <span style="color: #666666">0.4807</span>, <span style="color: #666666">0.02482</span>, <span style="color: #666666">0.9272</span>, <span style="color: #666666">0.02756</span>
+<span style="color: #408080; font-style: italic">#   Step size, redundant here  since step is equal to 1 yr      </span>
+<span style="color: #408080; font-style: italic">#    h = (FinalTime-InitialTime)/n</span>
+<span style="color: #408080; font-style: italic">#   Solve the difference equations (no time step here)</span>
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, n):
+        NumHares[i] <span style="color: #666666">=</span> NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">+</span>a<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>b<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]
+        NumLynx[i] <span style="color: #666666">=</span> NumLynx[i<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>c<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]<span style="color: #666666">+</span>d<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]
+        <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121"> </span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121"> </span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (year[i],NumHares[i],NumLynx[i])
+
+
+<span style="color: #408080; font-style: italic"># we read the data needed to plot the experimental values</span>
+rc(<span style="color: #BA2121">&#39;text&#39;</span>,usetex<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+title(<span style="color: #BA2121">r&#39;{\bf Population of hares and lynx from 1900 to 1920 (x1000)}&#39;</span>, fontsize<span style="color: #666666">=20</span>)     
+<span style="color: #408080; font-style: italic"># Load in data file</span>
+popdata <span style="color: #666666">=</span> loadtxt(<span style="color: #BA2121">&quot;popdata.dat&quot;</span>)
+<span style="color: #408080; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
+year <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">0</span>]
+hares <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">1</span>]
+lynx <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">2</span>]  
+
+<span style="color: #408080; font-style: italic">#  Set up numerical data, first find the amount of data points</span>
+n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(popdata[:,<span style="color: #666666">0</span>])
+<span style="color: #408080; font-style: italic"># Initialize array of hares and lynx computed numerically, all zero</span>
+NumHares <span style="color: #666666">=</span> zeros(n)
+NumLynx  <span style="color: #666666">=</span> zeros(n)
+<span style="color: #408080; font-style: italic">#  Then define the initial values from least-square fit</span>
+NumHares[<span style="color: #666666">0</span>], NumLynx[<span style="color: #666666">0</span>]  <span style="color: #666666">=</span>  <span style="color: #666666">34.91</span>, <span style="color: #666666">3.857</span>
+<span style="color: #408080; font-style: italic"># Define initial time and final time and  time step</span>
+InitialTime <span style="color: #666666">=</span> year[<span style="color: #666666">0</span>]
+FinalTime <span style="color: #666666">=</span> year[n<span style="color: #666666">-1</span>]
+<span style="color: #408080; font-style: italic"># Solve the equations        </span>
+SolveEquations(year, NumHares, NumLynx, InitialTime, FinalTime, n) 
+axis([<span style="color: #666666">1895</span>,<span style="color: #666666">1925</span>,<span style="color: #666666">0</span>, <span style="color: #666666">100.0</span>])
+<span style="color: #408080; font-style: italic"># Put lables on axes</span>
+xlabel(<span style="color: #BA2121">r&#39;Year&#39;</span>,fontsize<span style="color: #666666">=20</span>)
+ylabel(<span style="color: #BA2121">r&#39;Numbers of hares and lynx &#39;</span>,fontsize<span style="color: #666666">=20</span>)
+
+<span style="color: #408080; font-style: italic"># Then plot</span>
+plt<span style="color: #666666">.</span>plot(year, hares ,<span style="color: #BA2121">&#39;b-*&#39;</span>,   year, lynx, <span style="color: #BA2121">&#39;r:.&#39;</span>, year, NumHares, <span style="color: #BA2121">&#39;m:v&#39;</span>, year, NumLynx, <span style="color: #BA2121">&#39;k--&#39;</span>,  markersize<span style="color: #666666">=7</span>)
+legend((<span style="color: #BA2121">&#39;Hares&#39;</span>,<span style="color: #BA2121">&#39;Lynx&#39;</span>,<span style="color: #BA2121">&#39;NumHares&#39;</span>, <span style="color: #BA2121">&#39;NumLynx&#39;</span>),
+           <span style="color: #BA2121">&#39;upper right&#39;</span>, shadow<span style="color: #666666">=</span><span style="color: #008000">False</span>, fancybox<span style="color: #666666">=</span><span style="color: #008000">False</span>,prop<span style="color: #666666">=</span>{<span style="color: #BA2121">&quot;size&quot;</span>:<span style="color: #666666">18</span>})
+legend(loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper right&#39;</span>)
+savefig(<span style="color: #BA2121">&#39;popnumdata.pdf&#39;</span>, format<span style="color: #666666">=</span><span style="color: #BA2121">&#39;pdf&#39;</span>)
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+There is still a small error, most likely the step length is too high, leading to not a number. Needs to be checked.
+</div>
+
+
+<p>
+<!-- !split  -->
+
+<h2>Example of possible cases, <em>Predator-Prey</em> model, the bottom-up approach   <a name="___sec16"></a></h2>
 <div class="alert alert-block alert-block alert-text-normal">
 <b>Next steps.</b>
 <p>
@@ -613,7 +690,7 @@ In this model, the students could try to solve these equations by using 1900 as 
 <p>
 <!-- !split  -->
 
-<h2>Example of possible cases, Genomics   <a name="___sec16"></a></h2>
+<h2>Example of possible cases, Genomics   <a name="___sec17"></a></h2>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
