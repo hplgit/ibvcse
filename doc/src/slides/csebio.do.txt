@@ -114,6 +114,7 @@ One reason that this particular system has been so extensively studied is that t
 !eblock
 
 
+
 !split 
 ===== Example of possible cases, *Predator-Prey* model  ===== 
 !bblock 
@@ -140,7 +141,7 @@ popdata = loadtxt("popdata.dat")
 year = popdata[:,0]
 hares = popdata[:,1]
 lynx = popdata[:,2]  
-axis([1895,1925,0, 100.0])
+axis([1900,1920,0, 100.0])
 # Put lables on axes
 xlabel(r'Year',fontsize=20)
 ylabel(r'Numbers of hares and lynx ',fontsize=20)
@@ -348,61 +349,62 @@ from pylab import *
 from  matplotlib import pyplot as plt
 from matplotlib import rc, rcParams
 import matplotlib.units as units
-import matplotlib.ticker as ticker
-import sys
-import os
 
 
-# Define function to solve the difference equations
-def SolveEquations(year, NumHares, NumLynx, InitialTime, FinalTime, n):
+# Define functions to solve the difference equations
+def SolveEquations(NumYear, NumHares, NumLynx, n):
 #   Hardcoding of least-square optimized parameters
-    a, b, c, d = 0.4807, 0.02482, 0.9272, 0.02756
-#   Step size, redundant here  since step is equal to 1 yr      
-#    h = (FinalTime-InitialTime)/n
-#   Solve the difference equations (no time step here)
+    a, b, c, d = 0.4807, 0.02482, 0.9272, 0.02756      
+    h = (NumYear[n-1]-NumYear[0])/(n+1)
+#   Solve the difference equations
     for i in range(1, n):
-        NumHares[i] = NumHares[i-1]+a*NumHares[i-1]-b*NumHares[i-1]*NumLynx[i-1]
-        NumLynx[i] = NumLynx[i-1]-c*NumLynx[i-1]+d*NumHares[i-1]*NumLynx[i-1]
-        print "%6.3f %6.3f %6.3f" % (year[i],NumHares[i],NumLynx[i])
+        NumYear[i] = NumYear[0]+i*h 
+        NumHares[i] = NumHares[i-1]+h*(a*NumHares[i-1]-b*NumHares[i-1]*NumLynx[i-1])
+        NumLynx[i] = NumLynx[i-1]+h*(d*NumHares[i-1]*NumLynx[i-1]-c*NumLynx[i-1])
 
 
-# we read the data needed to plot the experimental values
-rc('text',usetex=True)
-title(r'{\bf Population of hares and lynx from 1900 to 1920 (x1000)}', fontsize=20)     
 # Load in data file
 popdata = loadtxt("popdata.dat")
 # Make arrays containing x-axis and hares and lynx populations
 year = popdata[:,0]
 hares = popdata[:,1]
 lynx = popdata[:,2]  
-
 #  Set up numerical data, first find the amount of data points
-n = len(popdata[:,0])
+n = 100
 # Initialize array of hares and lynx computed numerically, all zero
 NumHares = zeros(n)
 NumLynx  = zeros(n)
+NumYear  = zeros(n)
+NumYear[0], NumYear[n-1] = 1900, 1920
 #  Then define the initial values from least-square fit
 NumHares[0], NumLynx[0]  =  34.91, 3.857
 # Define initial time and final time and  time step
-InitialTime = year[0]
-FinalTime = year[n-1]
 # Solve the equations        
-SolveEquations(year, NumHares, NumLynx, InitialTime, FinalTime, n) 
-axis([1895,1925,0, 100.0])
-# Put lables on axes
+SolveEquations(NumYear, NumHares, NumLynx, n) 
+# Prepare text and labels for figure
+rc('text',usetex=True)
+title(r'{\bf Population of hares and lynx from 1900 to 1920 (x1000)}', fontsize=20)     
+axis([1900,1920,0, 140.0])
+# Put labels on axes
 xlabel(r'Year',fontsize=20)
 ylabel(r'Numbers of hares and lynx ',fontsize=20)
-
 # Then plot
-plt.plot(year, hares ,'b-*',   year, lynx, 'r:.', year, NumHares, 'm:v', year, NumLynx, 'k--',  markersize=7)
+plt.plot(year, hares ,'b-*',   year, lynx, 'r:.', NumYear, NumHares, 'm--', NumYear, NumLynx, 'k--',  markersize=7)
 legend(('Hares','Lynx','NumHares', 'NumLynx'),
-           'upper right', shadow=False, fancybox=False,prop={"size":18})
-legend(loc='upper right')
-savefig('popnumdata.pdf', format='pdf')
-
+           'upper left', shadow=False, fancybox=False,prop={"size":18})
+legend(loc='upper left')
+# Save to file
+savefig('numpopdata.pdf', format='pdf')
+# Then plot it
 plt.show()
 !ec
-There is still a small error, most likely the step length is too high, leading to not a number. Needs to be checked.
+Playing around with different steps lengths by varying the number $n$ in
+!bc  pycod
+#  Set up numerical data, first find the amount of data points
+n = 100
+!ec
+will allow the students to test the numerical algorithm against the size of the step size. A too large step size will lead to a poorer reproduction of the experimental data. The students will also see that fit gets worse the closer one gets to the final time. 
+
 !eblock
 
 
@@ -423,3 +425,7 @@ There is still a small error, most likely the step length is too high, leading t
 !bblock 
 * Skal vi si noe om dette ogsaa eller holder det? Her kan vi snakke om feks enkle Markov DNA sekvenser
 !eblock
+
+
+
+

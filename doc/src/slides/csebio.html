@@ -352,7 +352,7 @@ popdata <span style="color: #666666">=</span> loadtxt(<span style="color: #BA212
 year <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">0</span>]
 hares <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">1</span>]
 lynx <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">2</span>]  
-axis([<span style="color: #666666">1895</span>,<span style="color: #666666">1925</span>,<span style="color: #666666">0</span>, <span style="color: #666666">100.0</span>])
+axis([<span style="color: #666666">1900</span>,<span style="color: #666666">1920</span>,<span style="color: #666666">0</span>, <span style="color: #666666">100.0</span>])
 <span style="color: #408080; font-style: italic"># Put lables on axes</span>
 xlabel(<span style="color: #BA2121">r&#39;Year&#39;</span>,fontsize<span style="color: #666666">=20</span>)
 ylabel(<span style="color: #BA2121">r&#39;Numbers of hares and lynx &#39;</span>,fontsize<span style="color: #666666">=20</span>)
@@ -607,62 +607,67 @@ If we perform a least-square fitting, we can find optimal values for the paramet
 <span style="color: #008000; font-weight: bold">from</span>  <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> pyplot <span style="color: #008000; font-weight: bold">as</span> plt
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> rc, rcParams
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.units</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">units</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.ticker</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ticker</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
 
 
-<span style="color: #408080; font-style: italic"># Define function to solve the difference equations</span>
-<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">SolveEquations</span>(year, NumHares, NumLynx, InitialTime, FinalTime, n):
+<span style="color: #408080; font-style: italic"># Define functions to solve the difference equations</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">SolveEquations</span>(NumYear, NumHares, NumLynx, n):
 <span style="color: #408080; font-style: italic">#   Hardcoding of least-square optimized parameters</span>
-    a, b, c, d <span style="color: #666666">=</span> <span style="color: #666666">0.4807</span>, <span style="color: #666666">0.02482</span>, <span style="color: #666666">0.9272</span>, <span style="color: #666666">0.02756</span>
-<span style="color: #408080; font-style: italic">#   Step size, redundant here  since step is equal to 1 yr      </span>
-<span style="color: #408080; font-style: italic">#    h = (FinalTime-InitialTime)/n</span>
-<span style="color: #408080; font-style: italic">#   Solve the difference equations (no time step here)</span>
+    a, b, c, d <span style="color: #666666">=</span> <span style="color: #666666">0.4807</span>, <span style="color: #666666">0.02482</span>, <span style="color: #666666">0.9272</span>, <span style="color: #666666">0.02756</span>      
+    h <span style="color: #666666">=</span> (NumYear[n<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>NumYear[<span style="color: #666666">0</span>])<span style="color: #666666">/</span>(n<span style="color: #666666">+1</span>)
+<span style="color: #408080; font-style: italic">#   Solve the difference equations</span>
     <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, n):
-        NumHares[i] <span style="color: #666666">=</span> NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">+</span>a<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>b<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]
-        NumLynx[i] <span style="color: #666666">=</span> NumLynx[i<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>c<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]<span style="color: #666666">+</span>d<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]
-        <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121"> </span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121"> </span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (year[i],NumHares[i],NumLynx[i])
+        NumYear[i] <span style="color: #666666">=</span> NumYear[<span style="color: #666666">0</span>]<span style="color: #666666">+</span>i<span style="color: #666666">*</span>h 
+        NumHares[i] <span style="color: #666666">=</span> NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">+</span>h<span style="color: #666666">*</span>(a<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>b<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>])
+        NumLynx[i] <span style="color: #666666">=</span> NumLynx[i<span style="color: #666666">-1</span>]<span style="color: #666666">+</span>h<span style="color: #666666">*</span>(d<span style="color: #666666">*</span>NumHares[i<span style="color: #666666">-1</span>]<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>]<span style="color: #666666">-</span>c<span style="color: #666666">*</span>NumLynx[i<span style="color: #666666">-1</span>])
 
 
-<span style="color: #408080; font-style: italic"># we read the data needed to plot the experimental values</span>
-rc(<span style="color: #BA2121">&#39;text&#39;</span>,usetex<span style="color: #666666">=</span><span style="color: #008000">True</span>)
-title(<span style="color: #BA2121">r&#39;{\bf Population of hares and lynx from 1900 to 1920 (x1000)}&#39;</span>, fontsize<span style="color: #666666">=20</span>)     
 <span style="color: #408080; font-style: italic"># Load in data file</span>
 popdata <span style="color: #666666">=</span> loadtxt(<span style="color: #BA2121">&quot;popdata.dat&quot;</span>)
 <span style="color: #408080; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
 year <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">0</span>]
 hares <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">1</span>]
 lynx <span style="color: #666666">=</span> popdata[:,<span style="color: #666666">2</span>]  
-
 <span style="color: #408080; font-style: italic">#  Set up numerical data, first find the amount of data points</span>
-n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(popdata[:,<span style="color: #666666">0</span>])
+n <span style="color: #666666">=</span> <span style="color: #666666">100</span>
 <span style="color: #408080; font-style: italic"># Initialize array of hares and lynx computed numerically, all zero</span>
 NumHares <span style="color: #666666">=</span> zeros(n)
 NumLynx  <span style="color: #666666">=</span> zeros(n)
+NumYear  <span style="color: #666666">=</span> zeros(n)
+NumYear[<span style="color: #666666">0</span>], NumYear[n<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> <span style="color: #666666">1900</span>, <span style="color: #666666">1920</span>
 <span style="color: #408080; font-style: italic">#  Then define the initial values from least-square fit</span>
 NumHares[<span style="color: #666666">0</span>], NumLynx[<span style="color: #666666">0</span>]  <span style="color: #666666">=</span>  <span style="color: #666666">34.91</span>, <span style="color: #666666">3.857</span>
 <span style="color: #408080; font-style: italic"># Define initial time and final time and  time step</span>
-InitialTime <span style="color: #666666">=</span> year[<span style="color: #666666">0</span>]
-FinalTime <span style="color: #666666">=</span> year[n<span style="color: #666666">-1</span>]
 <span style="color: #408080; font-style: italic"># Solve the equations        </span>
-SolveEquations(year, NumHares, NumLynx, InitialTime, FinalTime, n) 
-axis([<span style="color: #666666">1895</span>,<span style="color: #666666">1925</span>,<span style="color: #666666">0</span>, <span style="color: #666666">100.0</span>])
-<span style="color: #408080; font-style: italic"># Put lables on axes</span>
+SolveEquations(NumYear, NumHares, NumLynx, n) 
+<span style="color: #408080; font-style: italic"># Prepare text and labels for figure</span>
+rc(<span style="color: #BA2121">&#39;text&#39;</span>,usetex<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+title(<span style="color: #BA2121">r&#39;{\bf Population of hares and lynx from 1900 to 1920 (x1000)}&#39;</span>, fontsize<span style="color: #666666">=20</span>)     
+axis([<span style="color: #666666">1900</span>,<span style="color: #666666">1920</span>,<span style="color: #666666">0</span>, <span style="color: #666666">140.0</span>])
+<span style="color: #408080; font-style: italic"># Put labels on axes</span>
 xlabel(<span style="color: #BA2121">r&#39;Year&#39;</span>,fontsize<span style="color: #666666">=20</span>)
 ylabel(<span style="color: #BA2121">r&#39;Numbers of hares and lynx &#39;</span>,fontsize<span style="color: #666666">=20</span>)
-
 <span style="color: #408080; font-style: italic"># Then plot</span>
-plt<span style="color: #666666">.</span>plot(year, hares ,<span style="color: #BA2121">&#39;b-*&#39;</span>,   year, lynx, <span style="color: #BA2121">&#39;r:.&#39;</span>, year, NumHares, <span style="color: #BA2121">&#39;m:v&#39;</span>, year, NumLynx, <span style="color: #BA2121">&#39;k--&#39;</span>,  markersize<span style="color: #666666">=7</span>)
+plt<span style="color: #666666">.</span>plot(year, hares ,<span style="color: #BA2121">&#39;b-*&#39;</span>,   year, lynx, <span style="color: #BA2121">&#39;r:.&#39;</span>, NumYear, NumHares, <span style="color: #BA2121">&#39;m--&#39;</span>, NumYear, NumLynx, <span style="color: #BA2121">&#39;k--&#39;</span>,  markersize<span style="color: #666666">=7</span>)
 legend((<span style="color: #BA2121">&#39;Hares&#39;</span>,<span style="color: #BA2121">&#39;Lynx&#39;</span>,<span style="color: #BA2121">&#39;NumHares&#39;</span>, <span style="color: #BA2121">&#39;NumLynx&#39;</span>),
-           <span style="color: #BA2121">&#39;upper right&#39;</span>, shadow<span style="color: #666666">=</span><span style="color: #008000">False</span>, fancybox<span style="color: #666666">=</span><span style="color: #008000">False</span>,prop<span style="color: #666666">=</span>{<span style="color: #BA2121">&quot;size&quot;</span>:<span style="color: #666666">18</span>})
-legend(loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper right&#39;</span>)
-savefig(<span style="color: #BA2121">&#39;popnumdata.pdf&#39;</span>, format<span style="color: #666666">=</span><span style="color: #BA2121">&#39;pdf&#39;</span>)
-
+           <span style="color: #BA2121">&#39;upper left&#39;</span>, shadow<span style="color: #666666">=</span><span style="color: #008000">False</span>, fancybox<span style="color: #666666">=</span><span style="color: #008000">False</span>,prop<span style="color: #666666">=</span>{<span style="color: #BA2121">&quot;size&quot;</span>:<span style="color: #666666">18</span>})
+legend(loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper left&#39;</span>)
+<span style="color: #408080; font-style: italic"># Save to file</span>
+savefig(<span style="color: #BA2121">&#39;numpopdata.pdf&#39;</span>, format<span style="color: #666666">=</span><span style="color: #BA2121">&#39;pdf&#39;</span>)
+<span style="color: #408080; font-style: italic"># Then plot it</span>
 plt<span style="color: #666666">.</span>show()
 </pre></div>
 <p>
-There is still a small error, most likely the step length is too high, leading to not a number. Needs to be checked.
+Playing around with different steps lengths by varying the number \( n \) in
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic">#  Set up numerical data, first find the amount of data points</span>
+n <span style="color: #666666">=</span> <span style="color: #666666">100</span>
+</pre></div>
+<p>
+will allow the students to test the numerical algorithm against the size of the step size. A too large step size will lead to a poorer reproduction of the experimental data. The students will also see that fit gets worse the closer one gets to the final time. 
+
+
 </div>
 
 
@@ -700,6 +705,8 @@ There is still a small error, most likely the step length is too high, leading t
 </ul>
 </div>
 
+
+<p>
 
 <!-- ------------------- end of main content --------------- -->
 
