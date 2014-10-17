@@ -1,4 +1,3 @@
-# Slides for FYS-KJM4480
 TITLE: Integrating computations, mathematics, physics and chemistry in undergraduate biology programs
 AUTHOR: Morten Hjorth-Jensen and Hans Petter Langtangen, Computing in Science Education, University of Oslo
 DATE: October 12 2014
@@ -6,70 +5,151 @@ DATE: October 12 2014
 !split
 ===== Overarching questions =====
 
-!bblock 
-* What kind of education do we want to give our undergraduate students and which skills are needed by biology students? 
-* Can we integrate programming, computations, mathematics and topics from physical sciences like physics and chemistry, in a seamless way in the basic biology (including all subdisciplines at IBV) education? 
-* Do we need to teach mathematics, physics, computations, chemistry etc as separate topics/courses, often totally disconnected from the interests and the needs of biology students and their teachers? 
-* Can we teach these topics in such a way that we can develop a better intuition and understanding of say computations and mathematics? And topics from other disciplines as well.
-* Would a problem based education suit better the needs of undergraduate programs in biology?
-* Would it be appropriate to  simply label all courses the first two-years of study as BIO-xxx?  
-* Can this serve as a model for other undergraduate programs as well? 
+!bblock
+!bpop
+ * Which skills are needed by MSc candidates in biology?
+ * There is new demand for more
+  * quantitative methods & reasoning
+  * understanding data via models
+  * creating *in silico* virtual labs
+ * How to integrate such *computing* in the bachelor programs?
+!epop
+!eblock
+
+!split
+===== How to teach computing in biology? =====
+
+!bblock
+!bpop
+ * Do we need to still following the tradition and teach mathematics, physics, computations, chemistry, etc. in separate discipline-specific courses?
+ * Results:
+  * uninteresting to first study tools when you want to study biology
+  * little understanding of what the tools are good for
+  * minor utilization of tools later in biology
+ * It's time for new thinking:
+  * Just-in-time teaching: teach tools *when needed*
+  * Teach tools in the *context of biology*
+  * Emphasize development of *intuition and understanding*
+  * Base learning of the students' own *explorations*
+  * Base teaching on examples and projects (from biology)
+  * Integrate lab work with computing tools
+  * Teach tools in BIOxxxx courses - this emphasizes the importance of
+    computing, physics, mathematics, ... in biology
+ * Corollary: this new thinking can be applied in chemistry, geology, ...
+   and all non-math-oriented programs
+!epop
 !eblock
 
 
 !split
+===== Current status =====
+
+!bblock
+ * CSE (*Computing in Science Education*) in life science is a faculty
+   priority area
+ * Core professors in the CSE project and 5 IBV professors
+   are dedicated to implementation
+ * 4 CINPLA PhD students have excellent background for and strong interests
+   in the implementation
+ * Let's roll!
+!eblock
+
+!split
 ===== Possible pilot project =====
 
-!bblock 
-* Set up a team of dedicated teachers (biology and CSE oriented people from other disciplines) and PhD, MSc and undergraduate students that will develop examples of topics to integrate  in biology courses.  
-* The recently established CINPLA@IBV project (Endringsmiljoe at MN@UiO) has hired four PhD students for four years. These PhD students can as part of their teaching duties develop several examples for biology courses  that integrate math and computations.  
-* The PhD students can form the hard core of the working group, in close collaboration with teachers from IBV and other CSE teachers and MSc and undergraduate students supported by the CSE project.
-* The duration of the project could be one year, with the final aim to develop a series of cases to present at an education workshop at IBV.
-* These cases will form the basis for a workshop next year for teachers at IBV, with an emphasis on integrating computations and math. 
-* The exit of this workshop can pave the road for step two, namely developing undergraduate modules that integrate several disciplines in biology courses. 
-* Time-line: one to two years to develop the first integrated pilot.
+!bblock
+ * 1 year: Oct 2014 - Oct 2015
+ * Form a project team of dedicated CSE+IBV people and CINPLA PhD students
+ * Develop a pedagogical framework
+ * CSE+IBV people identify a set of possible examples
+ * PhD students work closely with CSE+IBV people to find data,
+   define models, and write documents
+ * Intro course in computing and programming for IBV teachers, using
+   selected examples (spring 2015)
+ * Educational workshop at IBV:
+   * Present results from the project
+   * Discuss how and where to implement examples in BIOxxxx courses
+ * Fall 2016: First integration of computing in courses
 !eblock
 
 
+!split
+===== The pedagogical framework =====
 
+!bblock Aim: Develop student intuition about the scientific method
+ * Method: problem-based learning
+ * Coherent problem solving *in biology* by integrating
+   mathematics, programming, physics/chemistry, ...
+ * Starting point: data from lab or field experiments
+ * Visualize data
+ * Derive computational models directly from mathematical reasoning
+ * Program models, fit parameters, compare with data
+ * Develop intuition and understanding based on
+  * the principles behind the model
+  * exploration of the model (``what if'')
+  * prediction of new experiments
+ * For each example, document this scientific method in a common, structured framework
+!eblock
 
-!split 
-===== Develop a PBL based first year in Biology  ===== 
-!bblock Aim: introduce the relevant mathematics and computations in order to develop student intuition about the scientific method 
+!split
+===== Example 1: visualizing curves & basic programming =====
 
-* A typical situation is that math courses are taught as separate courses. After some few preliminary words about the relevance and possible examples, the main emphasis is on the mathematical properties of the equations, their solutions, uniqueness etc etc. 
-* This may be  disconnected from the background and interests of students in a specific undergraduate program
-* Similarly, topics like writing a program, reading data from file, plotting etc are normally taught in a disconnected course on programming. This would apply to basic physics and chemistry courses as well. 
-* How can we change this?
-* Integrate mathematics, computations and other disciplines in biology courses. The mathematical models, relevant physics/chemistry and other topics are introduced in a coherent way in biology courses. 
+!bblock
+ * Write down observations in a lab experiments
+ * Put data into arrays, visualize arrays
+ * Put data in files, read files and visualize
+ * Basic programming: loop over array data, functions (?)
+!eblock
+
+!split
+===== Example 2: population growth =====
+
+!bblock
+ * Target: evolution of cell culture, animal population, ...
+ * Intuitive reasoning about the dynamics:
+  o $2N$ individuals get twice as many new individuals $\Delta N$ in a time
+    interval $\Delta t$ as $N$ individuals
+  o $\Delta N \propto N$
+  o $N$ individuals get twice as many new individuals $\Delta N$ in
+    time $2\Delta t$ as in time $\Delta t$
+  o $\Delta N \propto\Delta t$
+  o Proposed model: $\Delta N = a\Delta t N$ for some unknown constant $a$
+  o Control: model is compatible with 1 and 3
+ * Describe evolution in discrete time: $t_n=n\Delta t$
+ * Program-friendly notation: $N$ at $t_n$ is $N^n$
+ * $N^{n+1} = N^n + \Delta N$
+
+!bt
+\[ N^{n+1} = N^n + a\Delta t N^n\]
+!et
 !eblock
 
 
-!split 
-===== Examples: *Predator-Prey* model  ===== 
+!split
+===== Examples: *Predator-Prey* model  =====
 !bblock Lotka-Volterra model and data from Hudson bay
 The population dynamics of a simple predator-prey system  is a classical example shown in many biology textbooks when ecological systems are discussed. The system contains all elements of the scientific method, starting with an emphasis on
 
  * The set up of a specific hypothesis combined with
  * the experimental methods needed (one can study existing data or perform experiments),
  * analyzing and interpreting the data and performing further experiments if needed
- * trying to extract general behaviors and extract eventual laws or patterns. 
+ * trying to extract general behaviors and extract eventual laws or patterns.
  * develop eventual mathematical relations for the uncovered regularities/laws and test these by performing new experiments
 !eblock
 
 
-!split 
-===== Examples: Simple *Predator-Prey* model  ===== 
+!split
+===== Examples: Simple *Predator-Prey* model  =====
 !bblock Lotka-Volterra model and data from Hudson bay
 
  * In this example we start with the data on hares and lynx collected from furs in Canada. The data show distinct oscillations.
- * The first step in the scientific investigation is thus to plot these data, introducing thereby simple programming issues like what is a file, how do I read from a file and how do I plot the data. When analyzing these data from a biological standpoint one can then integrate the first steps in programming. 
- * The next step is to try to model these data by simple finite difference equations. These equations provide an intuitive way to introduce the relevant mathematics. At later stages one can replace these difference equations with differential equations if appropriate and pedagogical relevant. 
- * The equations will also contain parameters which can fitted using the available data. At a later stage one can introduce tools like least-square fitting (this can come later) and let the students write a program which implements this. The necessary understanding of the pertinent statistical analysis and mathematics can then be introduced. 
- * This model can then be extended to models for the spread of diseases. 
+ * The first step in the scientific investigation is thus to plot these data, introducing thereby simple programming issues like what is a file, how do I read from a file and how do I plot the data. When analyzing these data from a biological standpoint one can then integrate the first steps in programming.
+ * The next step is to try to model these data by simple finite difference equations. These equations provide an intuitive way to introduce the relevant mathematics. At later stages one can replace these difference equations with differential equations if appropriate and pedagogical relevant.
+ * The equations will also contain parameters which can fitted using the available data. At a later stage one can introduce tools like least-square fitting (this can come later) and let the students write a program which implements this. The necessary understanding of the pertinent statistical analysis and mathematics can then be introduced.
+ * This model can then be extended to models for the spread of diseases.
  * And obviously, can the model which has been developed be applied to other predator-prey systems?
 
-With these steps one can then encompass significant elements of the scientific method at a very early stage in the educational ladder (first year), bringing in elements from computations, mathematics and statistics  in a natural and problem-based way. 
+With these steps one can then encompass significant elements of the scientific method at a very early stage in the educational ladder (first year), bringing in elements from computations, mathematics and statistics  in a natural and problem-based way.
 !eblock
 
 
@@ -83,7 +163,7 @@ With these steps one can then encompass significant elements of the scientific m
 
 Most mammalian predators rely on a variety of prey, which complicates mathematical modeling; however, a few predators have become highly specialized and seek almost exclusively a single prey species. An example of this simplified predator-prey interaction is seen in Canadian northern forests, where the populations of the lynx and the snowshoe hare are intertwined in a life and death struggle.
 
-One reason that this particular system has been so extensively studied is that the Hudson Bay company kept careful records of all furs from the early 1800s into the 1900s. The records for the furs collected by the Hudson Bay company showed distinct oscillations (approximately 12 year periods), suggesting that these species caused almost periodic fluctuations of each other's populations. The table here shows data from 1900 to 1920. 
+One reason that this particular system has been so extensively studied is that the Hudson Bay company kept careful records of all furs from the early 1800s into the 1900s. The records for the furs collected by the Hudson Bay company showed distinct oscillations (approximately 12 year periods), suggesting that these species caused almost periodic fluctuations of each other's populations. The table here shows data from 1900 to 1920.
 
 |------------------------------------------------------|
 |      Year         |     Hares (x1000)  | Lynx (x1000)|
@@ -115,13 +195,14 @@ One reason that this particular system has been so extensively studied is that t
 
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model  ===== 
-!bblock 
-The first step is to 
- 
+!split
+===== Example of possible cases, *Predator-Prey* model  =====
+!bblock
+The first step is to
+
 * make a file which contains the data, with columns containing year and data on hares and lynx. This will teach students the concept of a file and introduce practicalities like using terminals and editors.
- * The next step is to teach the first basic programming elements, including topics like understanding what a program is, how to define files, reading from file and plotting and similar operations.  The aim is to be able to read the above data and plot them, exemplified here in a simple python (we recommend python as the programming language) program. The program uses the *matplotlib* package. 
+* The next step is to teach the first basic programming elements, including topics like understanding what a program is, how to define files, reading from file and plotting and similar operations.  The aim is to be able to read the above data and plot them, exemplified here in a simple python (we recommend python as the programming language) program. The program uses the *matplotlib* package.
+
 !bc  pycod
 from numpy import *
 from pylab import *
@@ -134,13 +215,13 @@ import os
 import numpy as np
 
 rc('text',usetex=True)
-title(r'{\bf Population of hares and lynx from 1900 to 1920 (x1000)}', fontsize=20)     
+title(r'{\bf Population of hares and lynx from 1900 to 1920 (x1000)}', fontsize=20)
 # Load in data file
 popdata = loadtxt("popdata.dat")
 # Make arrays containing x-axis and hares and lynx populations
 year = popdata[:,0]
 hares = popdata[:,1]
-lynx = popdata[:,2]  
+lynx = popdata[:,2]
 axis([1900,1920,0, 100.0])
 # Put lables on axes
 xlabel(r'Year',fontsize=20)
@@ -154,6 +235,7 @@ savefig('popdata.pdf', format='pdf')
 
 plt.show()
 !ec
+
 A very useful addendum here is to provide the students with information on how to use *ipython notebook*. Handing material in this format, will allow students to make their own electronic notebooks, change the text, add, improve upon, do exercises etc etc.
 !eblock
 
@@ -163,12 +245,12 @@ A very useful addendum here is to provide the students with information on how t
 FIGURE: [popdata.pdf, width=500 frac=0.6]
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model  ===== 
-!bblock 
-We see from the plot that there are indeed fluctuations. 
+!split
+===== Example of possible cases, *Predator-Prey* model  =====
+!bblock
+We see from the plot that there are indeed fluctuations.
 
-We would like to create a mathematical model that explains these population fluctuations. Ecologists have predicted that in a simple predator-prey system that a rise in prey population is followed (with a lag) by a rise in the predator population. When the predator population is sufficiently high, then the prey population begins dropping. After the prey population falls, then the predator population falls, which allows the prey population to recover and completes one cycle of this interaction. Thus, we see that qualitatively oscillations occur. Can a mathematical model predict this? What causes cycles to slow or speed up? What affects the amplitude of the oscillation or do you expect to see the oscillations damp to a stable equilibrium? The models tend to ignore factors like climate and other complicating factors. How significant are these?   
+We would like to create a mathematical model that explains these population fluctuations. Ecologists have predicted that in a simple predator-prey system that a rise in prey population is followed (with a lag) by a rise in the predator population. When the predator population is sufficiently high, then the prey population begins dropping. After the prey population falls, then the predator population falls, which allows the prey population to recover and completes one cycle of this interaction. Thus, we see that qualitatively oscillations occur. Can a mathematical model predict this? What causes cycles to slow or speed up? What affects the amplitude of the oscillation or do you expect to see the oscillations damp to a stable equilibrium? The models tend to ignore factors like climate and other complicating factors. How significant are these?
 
 * The top-down approach would be to present the Lotka-Volterra equation and discuss how to solve it. The equation expresses the population changes through time according to the pair of equations:
 !bt
@@ -176,30 +258,30 @@ We would like to create a mathematical model that explains these population fluc
 \frac{dx}{dt} = x(\alpha - \beta y)\\
 \frac{dy}{dt} = - y(\gamma - \delta  x)
 \]
-!et 
+!et
 * Here $x$ is the number of preys and $y$ the number of predators. The other variables describe the interactions between the two species.
 * The rates $dx/dt$ and $dy/dt$ represent the growth rates over time.
 * The equation is then used to link mathematical modeling with   experimental data, here  hares and lynx in Canada.
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
-!bblock 
-* The bottom-up approach: start with experimental data and discuss the methods which have been used to collect the data, the assumptions, the aims etc. That is, expose the students to the theory and assumptions   behind the data that have been collected and motivate for the scientific method. 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
+!bblock
+* The bottom-up approach: start with experimental data and discuss the methods which have been used to collect the data, the assumptions, the aims etc. That is, expose the students to the theory and assumptions   behind the data that have been collected and motivate for the scientific method.
 * Where appropriate the students should do the experiment(s) needed to collect the data.
 * The first programming tasks would then be taught together with the data collection process, with an emphasis on reading and writing data to/from file and making plots of the data.
-* The students can then be triggered to see if they can discover patterns or regularities. This strengthens a research-driven intuition about the scientific method and specific systems. 
+* The students can then be triggered to see if they can discover patterns or regularities. This strengthens a research-driven intuition about the scientific method and specific systems.
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
-!bblock 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
+!bblock
 * After the first programming experience with reading and writing to/from file and plotting data, it is time to start modeling the data.
 * The simplest possibility is to forward a hypothesis based on changes in time of the populations, setting the problem up  as  simple and intuitive difference equations.
-* We introduce also the concept of a function of time. Here we label the number of hares as function of time as $H(t)$ and the number of lynx as $L(t)$. 
-* The change in the population of hares from year $t$ to a year $t+\Delta t$ (where $\Delta t$ is the change) is then given by 
+* We introduce also the concept of a function of time. Here we label the number of hares as function of time as $H(t)$ and the number of lynx as $L(t)$.
+* The change in the population of hares from year $t$ to a year $t+\Delta t$ (where $\Delta t$ is the change) is then given by
 !bt
 \[
 H(t+\Delta t)-H(t),
@@ -219,21 +301,21 @@ We have a similar equation for the number of lynx, namely
 !et
 !eblock
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
 !bblock Analysis stage
 With the rates by which the populations of hares and lynx change, we can now start modeling their interactions.
 
 * We need to define the  so-called initial values (initial conditions), that is, if we use the year 1900 as year zero, we have from the above table
 !bt
 \[
-H(t=0) =  30, 
+H(t=0) =  30,
 \]
 !et
 and
 !bt
 \[
-L(t=0) =  4. 
+L(t=0) =  4.
 \]
 !et
 We assume that the rate of change in a population is equal to the net increase (births) into the population minus the net decrease (deaths) of the population.
@@ -243,20 +325,20 @@ In making our model, we assume that the hares grow in proportion to their own po
 \frac{H(t+\Delta t)-H(t)}{\Delta t}=\alpha H(t),
 \]
 !et
-where $\alpha$ is a constant to be determined. 
+where $\alpha$ is a constant to be determined.
 We assume then that the primary loss of hares is due to predation by lynx. We model the latter as an interaction between hares and lynx by adding  a negative term
 !bt
 \[
 \frac{H(t+\Delta t)-H(t)}{\Delta t}=\alpha H(t)-\beta H(t)L(t),
 \]
 !et
-where $\beta$ is another constant to be determined. 
+where $\beta$ is another constant to be determined.
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
-!bblock 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
+!bblock
 
 For the time development of the lynx population, we assume that the primary growth for the lynx population depends on sufficient food for raising lynx kittens, which implies an adequate source of nutrients from predation on hares. Thus, the growth of the lynx population is similar to the death rate for the hare population with a different constant of proportionality. We model this as an interaction between hares and lynx as
 !bt
@@ -264,26 +346,26 @@ For the time development of the lynx population, we assume that the primary grow
 \frac{L(t+\Delta t)-L(t)}{\Delta t}=\gamma L(t)H(t),
 \]
 !et
-where $\gamma$ is a constant to be determined. 
+where $\gamma$ is a constant to be determined.
 We assume that the primary loss of lynx is due to declines in their own population, leading then to the following growth rate
 !bt
 \[
 \frac{L(t+\Delta t)-L(t)}{\Delta t}=\gamma L(t)H(t)-\delta L(t),
 \]
 !et
-with $\delta$ being another constant to be determined. 
+with $\delta$ being another constant to be determined.
 
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
-!bblock 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
+!bblock
 
 In summary we have the initial conditions
 !bt
 \[
-H(t=0) =  30, 
+H(t=0) =  30,
 \]
 !et
 and
@@ -304,19 +386,19 @@ and
 \frac{L(t+\Delta t)-L(t)}{\Delta t}=\gamma L(t)H(t)-\delta L(t).
 \]
 !et
-These equations have four parameters $\alpha\beta\gamma\delta$ which encompass complicated dynamics between the species and the environment. In the first stage, the students should be given values for these parameters, with an explanation that at a later 
-stage we will show them how to determine these parameters. 
+These equations have four parameters $\alpha\beta\gamma\delta$ which encompass complicated dynamics between the species and the environment. In the first stage, the students should be given values for these parameters, with an explanation that at a later
+stage we will show them how to determine these parameters.
 
 
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
-!bblock 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
+!bblock
 
 * The next step is to write a program which, with the given initial conditions, solves these two equations from an initial time
-$t_0$ to a given final time. 
+$t_0$ to a given final time.
 
 * Since data are given in terms of years, this means that the first approach should have $\Delta t=1$ yr in
 !bt
@@ -330,19 +412,19 @@ and
 \frac{L(t+\Delta t)-L(t)}{\Delta t}=\gamma L(t)H(t)-\delta L(t).
 \]
 !et
-In this model, the students could try to solve these equations by using 1900 as starting year and 1920 as the final year. 
+In this model, the students could try to solve these equations by using 1900 as starting year and 1920 as the final year.
 
-* The program will be rather simple but contains important elements like function constructions, loops, if statements and the definition of one-dimensional arrays which contain the solutions as function of time. 
+* The program will be rather simple but contains important elements like function constructions, loops, if statements and the definition of one-dimensional arrays which contain the solutions as function of time.
 
 * With the first project where students are asked to make a file containing the data and plot them, the next project is actually to write a program with the above elements and test the model against data.
 
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model  ===== 
+!split
+===== Example of possible cases, *Predator-Prey* model  =====
 !bblock The code
-If we perform a least-square fitting, we can find optimal values for the parameters $\alpha\beta\gamma\delta$. Here we will simply use these parameters and write a simple program which solves the two equations. The optimal parameters are $\alpha=0.4807$, $\beta=0.02482$, $\gamma=0.9272$ and $\delta=0.02756$. These parameters result in aslightly modified initial conditions, namely $H(0) = 34.91$ and $L(0)=3.857$. With these parameters we are now ready to solve the equations and plot these data together with the 'experimental' values.  
+If we perform a least-square fitting, we can find optimal values for the parameters $\alpha\beta\gamma\delta$. Here we will simply use these parameters and write a simple program which solves the two equations. The optimal parameters are $\alpha=0.4807$, $\beta=0.02482$, $\gamma=0.9272$ and $\delta=0.02756$. These parameters result in aslightly modified initial conditions, namely $H(0) = 34.91$ and $L(0)=3.857$. With these parameters we are now ready to solve the equations and plot these data together with the 'experimental' values.
 !bc  pycod
 from numpy import *
 from pylab import *
@@ -354,11 +436,11 @@ import matplotlib.units as units
 # Define functions to solve the difference equations
 def SolveEquations(NumYear, NumHares, NumLynx, n):
 #   Hardcoding of least-square optimized parameters
-    a, b, c, d = 0.4807, 0.02482, 0.9272, 0.02756      
+    a, b, c, d = 0.4807, 0.02482, 0.9272, 0.02756
     h = (NumYear[n-1]-NumYear[0])/(n+1)
 #   Solve the difference equations
     for i in range(1, n):
-        NumYear[i] = NumYear[0]+i*h 
+        NumYear[i] = NumYear[0]+i*h
         NumHares[i] = NumHares[i-1]+h*(a*NumHares[i-1]-b*NumHares[i-1]*NumLynx[i-1])
         NumLynx[i] = NumLynx[i-1]+h*(d*NumHares[i-1]*NumLynx[i-1]-c*NumLynx[i-1])
 
@@ -368,7 +450,7 @@ popdata = loadtxt("popdata.dat")
 # Make arrays containing x-axis and hares and lynx populations
 year = popdata[:,0]
 hares = popdata[:,1]
-lynx = popdata[:,2]  
+lynx = popdata[:,2]
 #  Set up numerical data, first find the amount of data points
 n = 100
 # Initialize array of hares and lynx computed numerically, all zero
@@ -379,11 +461,11 @@ NumYear[0], NumYear[n-1] = 1900, 1920
 #  Then define the initial values from least-square fit
 NumHares[0], NumLynx[0]  =  34.91, 3.857
 # Define initial time and final time and  time step
-# Solve the equations        
-SolveEquations(NumYear, NumHares, NumLynx, n) 
+# Solve the equations
+SolveEquations(NumYear, NumHares, NumLynx, n)
 # Prepare text and labels for figure
 rc('text',usetex=True)
-title(r'{\bf Population of hares and lynx from 1900 to 1920 (x1000)}', fontsize=20)     
+title(r'{\bf Population of hares and lynx from 1900 to 1920 (x1000)}', fontsize=20)
 axis([1900,1920,0, 140.0])
 # Put labels on axes
 xlabel(r'Year',fontsize=20)
@@ -403,29 +485,25 @@ Playing around with different steps lengths by varying the number $n$ in
 #  Set up numerical data, first find the amount of data points
 n = 100
 !ec
-will allow the students to test the numerical algorithm against the size of the step size. A too large step size will lead to a poorer reproduction of the experimental data. The students will also see that fit gets worse the closer one gets to the final time. 
+will allow the students to test the numerical algorithm against the size of the step size. A too large step size will lead to a poorer reproduction of the experimental data. The students will also see that fit gets worse the closer one gets to the final time.
 
 !eblock
 
 
-!split 
-===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  ===== 
+!split
+===== Example of possible cases, *Predator-Prey* model, the bottom-up approach  =====
 !bblock Next steps
 * There are several further paths which can be followed.
  * Include a model for diseases among the predators
  * Bring concepts from statistics and discuss how to possibly make fits of the data in order to constrain the parameters $\alpha\beta\gamma\delta$. *We need to figure out if this is premature*.
- * Move from difference equations to differential equations, would this be meaningful?  
+ * Move from difference equations to differential equations, would this be meaningful?
 !eblock
 
 
 
 
-!split 
-===== Example of possible cases, Genomics  ===== 
-!bblock 
+!split
+===== Example of possible cases, Genomics  =====
+!bblock
 * Skal vi si noe om dette ogsaa eller holder det? Her kan vi snakke om feks enkle Markov DNA sekvenser
 !eblock
-
-
-
-
