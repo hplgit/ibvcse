@@ -540,7 +540,7 @@ Note:
 FIGURE: [fig/Hudson_Bay_sim, width=700 frac=0.9]
 
 % else:
-If we perform a least-square fitting, we can find optimal values for the parameters $a$, $b$, $d$, $c$. The optimal parameters are $a=0.4807$, $b=0.02482$, $d=0.9272$ and $c=0.02756$. These parameters result in a slightly modified initial conditions, namely $H(0) = 34.91$ and $L(0)=3.857$. With these parameters we are now ready to solve the equations and plot these data together with the 'experimental values.
+If we perform a least-square fitting, we can find optimal values for the parameters $a$, $b$, $d$, $c$. The optimal parameters are $a=0.4807$, $b=0.02482$, $d=0.9272$ and $c=0.02756$. These parameters result in a slightly modified initial conditions, namely $H(0) = 34.91$ and $L(0)=3.857$. With these parameters we are now ready to solve the equations and plot these data together with the experimental values.
 % endif
 
 !split

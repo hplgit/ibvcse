@@ -4,11 +4,11 @@ import numpy as np
 data = np.loadtxt('ecoli.csv', delimiter=',')
 t_e = data[:,0]
 N_e = data[:,1]
-i = 3
+i = 2  # Data point (i,i+1) used to estimate r
 r = (N_e[i+1] - N_e[i])/(N_e[i]*(t_e[i+1] - t_e[i]))
 print 'Estimated r=%.5f' % r
 # Can experiment with r values and see if the model can
-# match the data
+# match the data better
 
 T = 1200     # cell can divide after T sec
 t_max = 5*T  # 5 generations in experiment
