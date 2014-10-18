@@ -13,6 +13,9 @@ function system {
 system doconce format html $name --html_style=solarized3
 system doconce slides_html $name doconce --nav_button=text
 
+system doconce format html $name --html_style=bloodish --html_output=${name}-1
+system doconce split_html $name doconce --method=hrule
+
 system doconce format ipynb $name
 
 beamertheme=red_shadow
@@ -26,4 +29,4 @@ system doconce format html index --html_style=bootstrap --html_bootstrap_navbar=
 
 # Publish
 dest=../../pub/slides
-cp $name.html ._${name}*.html $name.ipynb $name.pdf index.html $dest
+cp ${name}*.html ._${name}*.html $name.ipynb $name.pdf index.html $dest
