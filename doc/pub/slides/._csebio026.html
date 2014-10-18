@@ -139,26 +139,32 @@ MathJax.Hub.Config({
 
 
     
-<a name="part0008"></a>
+<a name="part0026"></a>
 <!-- !split -->
 
-<h2>Concepts that are implicitly introduced  <a name="___sec7"></a></h2>
+<h2>Basic dynamics of the population of hares  <a name="___sec25"></a></h2>
 
 <p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
+The population of hares evolves due to births and deaths exactly as a bacteria population:
 
-<ul>
- <li> Lists or arrays of numbers</li>
- <li> Plotting commands</li>
- <li> Curve</li>
- <li> Function of time</li>
-</ul>
+$$
+\Delta H = \alpha \Delta t H^n
+$$
 
-The concept of a continuous function \( N(t) \) is not necessary.
-All we need for a long time is the concept of a curve: straight lines
-between points.
+However, hares have an additional loss in the population because
+they are eaten by lynx.
+All the hares and lynx can form
+\( H\cdot L \) pairs in total. When such pairs meet during a time
+interval \( \Delta t \), there is some
+small probablity that the lynx will eat the hare.
+So in fraction \( \beta\Delta t HL \), the lynx eat hares. This
+loss of hares and must be accounted for:
+subtracted in the equation for hares:
+
+$$ \Delta H = \alpha\Delta t H^n - \beta \Delta t H^nL^n$$
 </div>
 
 
@@ -166,9 +172,9 @@ between points.
 <p>
 <!-- begin bottom navigation -->
 <table style="width: 100%"><tr><td>
-<div style="text-align: left;"><a href="._csebio007.html">&laquo; Previous</a></div>
+<div style="text-align: left;"><a href="._csebio025.html">&laquo; Previous</a></div>
 </td><td>
-<div style="text-align: right;"><a href="._csebio009.html">Next &raquo;</a></div>
+<div style="text-align: right;"><a href="._csebio027.html">Next &raquo;</a></div>
 </td></tr></table>
 <!-- end bottom navigation -->
 </p>
