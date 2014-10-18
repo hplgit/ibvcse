@@ -396,15 +396,15 @@ The classical way (in all books) is to present the Lotka-Volterra equations:
 
 !bt
 \begin{align*}
-\frac{dx}{dt} &= x(\alpha - \beta y)\\
-\frac{dy}{dt} &= - y(\gamma - \delta  x)
+\frac{dH}{dt} &= H(a - b L)\\
+\frac{dL}{dt} &= - L(d - c  H)
 \end{align*}
 !et
 Here,
 
  * $x$ is the number of preys
  * $y$ the number of predators
- * $\alpha$, $\beta$, $\gamma$, $\delta$ are parameters
+ * $a$, $b$, $d$, $c$ are parameters
 
 Most books quickly establish the model and then use considerable space on
 discussing the qualitative properties of this *nonlinear system of
@@ -447,7 +447,7 @@ The population of hares evolves due to births and deaths exactly as a bacteria p
 
 !bt
 \[
-\Delta H = \alpha \Delta t H^n
+\Delta H = a \Delta t H^n
 \]
 !et
 However, hares have an additional loss in the population because
@@ -456,12 +456,12 @@ All the hares and lynx can form
 $H\cdot L$ pairs in total. When such pairs meet during a time
 interval $\Delta t$, there is some
 small probablity that the lynx will eat the hare.
-So in fraction $\beta\Delta t HL$, the lynx eat hares. This
+So in fraction $b\Delta t HL$, the lynx eat hares. This
 loss of hares and must be accounted for:
 subtracted in the equation for hares:
 
 !bt
-\[ \Delta H = \alpha\Delta t H^n - \beta \Delta t H^nL^n\]
+\[ \Delta H = a\Delta t H^n - b \Delta t H^nL^n\]
 !et
 !eblock
 
@@ -471,16 +471,16 @@ subtracted in the equation for hares:
 !bblock
 We assume that the primary growth for the lynx population depends on sufficient food for raising lynx kittens, which implies an adequate source of nutrients from predation on hares. Thus, the growth of the lynx population does not only depend of how many lynx there are, but on how many hares they can eat.
 In a time interval $\Delta t HL$ hares and lynx can meet, and in a
-fraction $\beta\Delta t HL$ the lynx eats the hare. All of this does not
+fraction $b\Delta t HL$ the lynx eats the hare. All of this does not
 contribute to the growth of lynx, again just a fraction of
-$\beta\Delta t HL$ that we write as
-$\gamma\Delta t HL$. In addition, lynx die just as in the population
+$b\Delta t HL$ that we write as
+$d\Delta t HL$. In addition, lynx die just as in the population
 dynamics with one isolated animal population, leading to a loss
-$-\delta\Delta t L$.
+$-c\Delta t L$.
 
 The accounting of lynx then looks like
 !bt
-\[ \Delta L = \gamma H^nL^n - \delta H^nL^n\]
+\[ \Delta L = d\Delta t H^nL^n - c\Delta t L^n\]
 !et
 !eblock
 
@@ -492,16 +492,18 @@ By writing up the definition of $\Delta H$ and $\Delta L$, and putting
 all assumed known terms $H^n$ and $L^n$ on the right-hand side, we have
 
 !bt
-\begin{align*}
-H^{n+1} &= H^n + \alpha H^n - \beta H^nL^n\\
-L^{n+1} &= L^n + \gamma H^nL^n - \delta L^n
-\end{align*}
+\[ H^{n+1} = H^n + a\Delta t H^n - b\Delta t H^n L^n \]
 !et
+
+!bt
+\[ L^{n+1} = L^n + d\Delta t H^nL^n - c\Delta t L^n \]
+!et
+
 Note:
 
  * These equations are ready to be implemented!
  * But to start, we need $H^0$ and $L^0$ (which we can get from the data)
- * We also need values for $\alpha$, $\beta$, $\gamma$, $\delta$
+ * We also need values for $a$, $b$, $d$, $c$
 !eblock
 
 !split
@@ -512,7 +514,7 @@ Note:
    to ``all'' predator-pray systems
  * The critical issue is whether the *interaction* between hares and lynx
    is sufficiently well modeled by $\hbox{const}HL$
- * The parameters $\alpha$, $\beta$, $\gamma$, and $\delta$ must be
+ * The parameters $a$, $b$, $d$, and $c$ must be
    estimated from data
  * Measure time in years
  * $t_0=1900$, $t_m=1920$
@@ -532,15 +534,15 @@ Note:
 FIGURE: [fig/Hudson_Bay_sim, width=700 frac=0.9]
 
 % else:
-If we perform a least-square fitting, we can find optimal values for the parameters $\alpha\beta\gamma\delta$. The optimal parameters are $\alpha=0.4807$, $\beta=0.02482$, $\gamma=0.9272$ and $\delta=0.02756$. These parameters result in a slightly modified initial conditions, namely $H(0) = 34.91$ and $L(0)=3.857$. With these parameters we are now ready to solve the equations and plot these data together with the 'experimental values.
+If we perform a least-square fitting, we can find optimal values for the parameters $a$, $b$, $d$, $c$. The optimal parameters are $a=0.4807$, $b=0.02482$, $d=0.9272$ and $c=0.02756$. These parameters result in a slightly modified initial conditions, namely $H(0) = 34.91$ and $L(0)=3.857$. With these parameters we are now ready to solve the equations and plot these data together with the 'experimental values.
 % endif
 
 !split
 ===== Other examples =====
 !bblock
- * Disease modeling
+ * "Disease modeling": "http://hplgit.github.io/disease-modeling/doc/web/index.html"
  * Predator-pray with disease
- * Bioinformatics: searching in strings
+ * "Bioinformatics: searching in strings": "http://hplgit.github.io/bioinf-py/doc/web/index.html"
  * Move from difference equations to differential equations, would this be meaningful? Probably not - it does not give anything in biology before the models are so complex that one needs other things than Forward Euler...
 !eblock
 
@@ -552,3 +554,5 @@ If we perform a least-square fitting, we can find optimal values for the paramet
 !bblock
 * Skal vi si noe om dette ogsaa eller holder det? Her kan vi snakke om feks enkle Markov DNA sekvenser
 !eblock
+
+[hpl: Revision consists of simplifying and condesing text for a slide-style format and presentation. Programs are simplified. Data files are now in CSV format (e.g., from Excel) and autoread into two-dim arrays. Program variables corresponding to the math notation 1-1. Plots appear only if not notebook. :triumph:]

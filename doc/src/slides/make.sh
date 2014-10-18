@@ -14,7 +14,7 @@ system doconce format html $name --html_style=solarized3
 system doconce slides_html $name doconce --nav_button=text
 
 system doconce format html $name --html_style=bloodish --html_output=${name}-1
-system doconce split_html $name doconce --method=hrule
+system doconce split_html $name --method=space10
 
 system doconce format ipynb $name
 

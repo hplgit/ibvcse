@@ -151,18 +151,19 @@ MathJax.Hub.Config({
 By writing up the definition of \( \Delta H \) and \( \Delta L \), and putting
 all assumed known terms \( H^n \) and \( L^n \) on the right-hand side, we have
 
-$$
-\begin{align*}
-H^{n+1} &= H^n + \alpha H^n - \beta H^nL^n\L^{n+1} &= L^n + \gamma H^nL^n - \delta L^n
-\end{align*}
-$$
+$$ H^{n+1} = H^n + a\Delta t H^n - b\Delta t H^n L^n $$
 
+
+$$ L^{n+1} = L^n + d\Delta t H^nL^n - c\Delta t L^n $$
+
+
+<p>
 Note:
 
 <ul>
  <li> These equations are ready to be implemented!</li>
  <li> But to start, we need \( H^0 \) and \( L^0 \) (which we can get from the data)</li>
- <li> We also need values for \( \alpha \), \( \beta \), \( \gamma \), \( \delta \)</li>
+ <li> We also need values for \( a \), \( b \), \( d \), \( c \)</li>
 </ul>
 </div>
 
