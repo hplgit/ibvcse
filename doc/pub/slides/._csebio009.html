@@ -116,8 +116,7 @@ div { text-align: justify; text-justify: inter-word; }
                '___sec28'),
               (' The program ', 2, None, '___sec29'),
               (' The plot ', 2, None, '___sec30'),
-              (' Other examples ', 2, None, '___sec31'),
-              (' Example of possible cases, Genomics  ', 2, None, '___sec32')]}
+              (' Other examples ', 2, None, '___sec31')]}
 end of tocinfo -->
 
 <body>
@@ -150,8 +149,8 @@ MathJax.Hub.Config({
 <p>
 <!-- begin verbatim block  pypro-->
 <pre><code>import numpy as np
-data = np.loadtxt('ecoli.dat', delimiter=',')
-print data
+data = np.loadtxt('ecoli.csv', delimiter=',')
+print data  # look at the format
 t = data[:,0]
 N = data[:,1]
 import matplotlib.pyplot as plt

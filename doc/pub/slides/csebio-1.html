@@ -126,8 +126,7 @@ div { text-align: justify; text-justify: inter-word; }
                '___sec28'),
               (' The program ', 2, None, '___sec29'),
               (' The plot ', 2, None, '___sec30'),
-              (' Other examples ', 2, None, '___sec31'),
-              (' Example of possible cases, Genomics  ', 2, None, '___sec32')]}
+              (' Other examples ', 2, None, '___sec31')]}
 end of tocinfo -->
 
 <body>
@@ -430,8 +429,8 @@ between points.
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
-data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;ecoli.dat&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>)
-<span style="color: #008000; font-weight: bold">print</span> data
+data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;ecoli.csv&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>)
+<span style="color: #008000; font-weight: bold">print</span> data  <span style="color: #408080; font-style: italic"># look at the format</span>
 t <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
 N <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
@@ -617,6 +616,7 @@ t_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">0<
 N_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
 i <span style="color: #666666">=</span> <span style="color: #666666">3</span>
 r <span style="color: #666666">=</span> (N_e[i<span style="color: #666666">+1</span>] <span style="color: #666666">-</span> N_e[i])<span style="color: #666666">/</span>(N_e[i]<span style="color: #666666">*</span>(t_e[i<span style="color: #666666">+1</span>] <span style="color: #666666">-</span> t_e[i]))
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;Estimated r=</span><span style="color: #BB6688; font-weight: bold">%.5f</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> r
 <span style="color: #408080; font-style: italic"># Can experiment with r values and see if the model can</span>
 <span style="color: #408080; font-style: italic"># match the data</span>
 
@@ -629,15 +629,15 @@ N <span style="color: #666666">=</span> np<span style="color: #666666">.</span>z
 N[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">100</span>
 <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, <span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>, <span style="color: #666666">1</span>):
     N[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> N[n] <span style="color: #666666">+</span> r<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>N[n]
-    <span style="color: #008000; font-weight: bold">print</span> N[n<span style="color: #666666">+1</span>]
 
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
 plt<span style="color: #666666">.</span>plot(t, N, <span style="color: #BA2121">&#39;r-&#39;</span>, t_e, N_e, <span style="color: #BA2121">&#39;bo&#39;</span>)
 plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;time [s]&#39;</span>);  plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;N&#39;</span>)
-plt<span style="color: #666666">.</span>legend([<span style="color: #BA2121">&#39;model&#39;</span>, <span style="color: #BA2121">&#39;experiment&#39;</span>])
+plt<span style="color: #666666">.</span>legend([<span style="color: #BA2121">&#39;model&#39;</span>, <span style="color: #BA2121">&#39;experiment&#39;</span>], loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper left&#39;</span>)
 plt<span style="color: #666666">.</span>show()
 </pre></div>
-
+<p>
+Change <code>r</code> in the program and play around to make a better fit!
 </div>
 
 
@@ -823,24 +823,27 @@ plt<span style="color: #666666">.</span>show()
 <!-- !split -->
 
 <h2>The traditional (top-down) approach  <a name="___sec22"></a></h2>
+
+<p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
-<p>
-
 <p>
 The classical way (in all books) is to present the Lotka-Volterra equations:
 
 $$
 \begin{align*}
-\frac{dH}{dt} &= H(a - b L)\\frac{dL}{dt} &= - L(d - c  H)
+\frac{dH}{dt} &= H(a - b L)\\ 
+\frac{dL}{dt} &= - L(d - c  H)
 \end{align*}
 $$
 
+
+<p>
 Here,
 
 <ul>
- <li> \( x \) is the number of preys</li>
- <li> \( y \) the number of predators</li>
+ <li> \( H \) is the number of preys</li>
+ <li> \( L \) the number of predators</li>
  <li> \( a \), \( b \), \( d \), \( c \) are parameters</li>
 </ul>
 
@@ -854,6 +857,8 @@ ODEs</em> (which cannot be solved)
 <!-- !split -->
 
 <h2>The &quot;new&quot; discrete bottom-up approach  <a name="___sec23"></a></h2>
+
+<p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b>The bottom-up approach.</b>
 <p>
@@ -866,7 +871,7 @@ ODEs</em> (which cannot be solved)
  <li> Now we want to increase the understanding through modeling.</li>
  <li> Most of the biology lies in the <em>derivation</em> of the model. We shall
    focus on an intuitive discrete approach that leads to difference
-   equations that can be programmed directly.</li>
+   equations that can be programmed <em>and solved</em> directly.</li>
 </ul>
 
 <!-- !epop -->
@@ -1032,7 +1037,7 @@ Note:
     <span style="color: #008000; font-weight: bold">return</span> H, L, t
 
 <span style="color: #408080; font-style: italic"># Load in data file</span>
-data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;Hudson_Bay.dat&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>, skiprows<span style="color: #666666">=1</span>)
+data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;Hudson_Bay.csv&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>, skiprows<span style="color: #666666">=1</span>)
 <span style="color: #408080; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
 t_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
 H_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
@@ -1075,24 +1080,10 @@ plt<span style="color: #666666">.</span>show()
 <p>
 
 <ul>
- <li> Disease modeling</li>
+ <li> <a href="http://hplgit.github.io/disease-modeling/doc/web/index.html" target="_self">Disease modeling</a></li>
  <li> Predator-pray with disease</li>
- <li> Bioinformatics: searching in strings</li>
+ <li> <a href="http://hplgit.github.io/bioinf-py/doc/web/index.html" target="_self">Bioinformatics: searching in strings</a></li>
  <li> Move from difference equations to differential equations, would this be meaningful? Probably not - it does not give anything in biology before the models are so complex that one needs other things than Forward Euler...</li>
-</ul>
-</div>
-
-
-<p>
-<!-- !split -->
-
-<h2>Example of possible cases, Genomics   <a name="___sec32"></a></h2>
-<div class="alert alert-block alert-block alert-text-normal">
-<b></b>
-<p>
-
-<ul>
-<li> Skal vi si noe om dette ogsaa eller holder det? Her kan vi snakke om feks enkle Markov DNA sekvenser</li>
 </ul>
 </div>
 
@@ -1100,7 +1091,7 @@ plt<span style="color: #666666">.</span>show()
 <p>
 
 <!-- begin inline comment -->
-<font color="red">(<b>hpl 2</b>: Revision consists of simplifying and condesing text for a slide-style format and presentation. Programs are simplified. Data files are now in CSV format (e.g., from Excel) and autoread into two-dim arrays. Program variables corresponding to the math notation 1-1. Plots appear only if not notebook. :triumph:)</font>
+<font color="red">(<b>hpl 2</b>: Revision consists of simplifying and condesing text for a slide-style format and presentation. Programs are simplified. Data files are now in CSV format (e.g., from Excel) and autoread into two-dim arrays. Plots appear only if not notebook <img src="https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/triumph.png" width="22px" height="22px" align="center"> Program variables corresponding to the math notation 1-1.)</font>
 <!-- end inline comment -->
 
 

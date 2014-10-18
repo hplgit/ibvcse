@@ -143,8 +143,8 @@ between points.
 !bblock
 !bc pypro
 import numpy as np
-data = np.loadtxt('ecoli.dat', delimiter=',')
-print data
+data = np.loadtxt('ecoli.csv', delimiter=',')
+print data  # look at the format
 t = data[:,0]
 N = data[:,1]
 import matplotlib.pyplot as plt
@@ -261,6 +261,8 @@ too advanced at this stage.
 
 !bblock
 @@@CODE src/ecoli.py
+
+Change `r` in the program and play around to make a better fit!
 !eblock
 
 !split
@@ -354,10 +356,12 @@ One reason that this particular system has been so extensively studied is that t
 @@@CODE src/plot_Hudson.py
 !eblock
 
+% if FORMAT != 'ipynb':
 !split
 ===== Hares and lynx in Hudson bay from 1900 to 1920 =====
 
 FIGURE: [fig/Hudson_Bay_data, width=700 frac=0.9]
+% endif
 
 
 !split
@@ -388,10 +392,11 @@ climate and other complicating factors. How significant are these?
 % endif
 !eblock
 
+
 !split
 ===== The traditional (top-down) approach =====
-!bblock
 
+!bblock
 The classical way (in all books) is to present the Lotka-Volterra equations:
 
 !bt
@@ -400,10 +405,11 @@ The classical way (in all books) is to present the Lotka-Volterra equations:
 \frac{dL}{dt} &= - L(d - c  H)
 \end{align*}
 !et
+
 Here,
 
- * $x$ is the number of preys
- * $y$ the number of predators
+ * $H$ is the number of preys
+ * $L$ the number of predators
  * $a$, $b$, $d$, $c$ are parameters
 
 Most books quickly establish the model and then use considerable space on
@@ -414,6 +420,7 @@ ODEs* (which cannot be solved)
 
 !split
 ===== The ``new'' discrete bottom-up approach =====
+
 !bblock The bottom-up approach
 !bpop
  * Start with experimental data and discuss the methods which have been used to collect the data, the assumptions, the electronic devices, the aims etc. That is, expose the students to the theory and assumptions behind the data that have been collected and motivate for the scientific method.
@@ -422,10 +429,9 @@ ODEs* (which cannot be solved)
  * Now we want to increase the understanding through modeling.
  * Most of the biology lies in the *derivation* of the model. We shall
    focus on an intuitive discrete approach that leads to difference
-   equations that can be programmed directly.
+   equations that can be programmed *and solved* directly.
 !epop
 !eblock
-
 
 !split
 ===== Basic (computer-friendly) mathematics notation =====
@@ -546,13 +552,4 @@ If we perform a least-square fitting, we can find optimal values for the paramet
  * Move from difference equations to differential equations, would this be meaningful? Probably not - it does not give anything in biology before the models are so complex that one needs other things than Forward Euler...
 !eblock
 
-
-
-
-!split
-===== Example of possible cases, Genomics  =====
-!bblock
-* Skal vi si noe om dette ogsaa eller holder det? Her kan vi snakke om feks enkle Markov DNA sekvenser
-!eblock
-
-[hpl: Revision consists of simplifying and condesing text for a slide-style format and presentation. Programs are simplified. Data files are now in CSV format (e.g., from Excel) and autoread into two-dim arrays. Program variables corresponding to the math notation 1-1. Plots appear only if not notebook. :triumph:]
+[hpl: Revision consists of simplifying and condesing text for a slide-style format and presentation. Programs are simplified. Data files are now in CSV format (e.g., from Excel) and autoread into two-dim arrays. Plots appear only if not notebook :triumph: Program variables corresponding to the math notation 1-1. ]

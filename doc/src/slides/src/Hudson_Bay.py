@@ -20,7 +20,7 @@ def solver(m, H0, L0, dt, a, b, c, d, t0):
     return H, L, t
 
 # Load in data file
-data = np.loadtxt('Hudson_Bay.dat', delimiter=',', skiprows=1)
+data = np.loadtxt('Hudson_Bay.csv', delimiter=',', skiprows=1)
 # Make arrays containing x-axis and hares and lynx populations
 t_e = data[:,0]
 H_e = data[:,1]

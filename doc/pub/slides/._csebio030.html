@@ -116,8 +116,7 @@ div { text-align: justify; text-justify: inter-word; }
                '___sec28'),
               (' The program ', 2, None, '___sec29'),
               (' The plot ', 2, None, '___sec30'),
-              (' Other examples ', 2, None, '___sec31'),
-              (' Example of possible cases, Genomics  ', 2, None, '___sec32')]}
+              (' Other examples ', 2, None, '___sec31')]}
 end of tocinfo -->
 
 <body>
@@ -171,7 +170,7 @@ def solver(m, H0, L0, dt, a, b, c, d, t0):
     return H, L, t
 
 # Load in data file
-data = np.loadtxt('Hudson_Bay.dat', delimiter=',', skiprows=1)
+data = np.loadtxt('Hudson_Bay.csv', delimiter=',', skiprows=1)
 # Make arrays containing x-axis and hares and lynx populations
 t_e = data[:,0]
 H_e = data[:,1]
