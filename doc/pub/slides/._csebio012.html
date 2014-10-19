@@ -138,40 +138,44 @@ MathJax.Hub.Config({
 
 
     
-<a name="part0000"></a>
-<!-- ------------------- main content ---------------------- -->
+<a name="part0012"></a>
+<!-- !split -->
 
-
-
-<center><h1>Integrating computations, mathematics, physics and chemistry in undergraduate biology programs</h1></center>  <!-- document title -->
+<h2>The first simple program  <a name="___sec11"></a></h2>
 
 <p>
-<!-- author(s): Morten Hjorth-Jensen, and Hans Petter Langtangen -->
-
-<center>
-<b>Morten Hjorth-Jensen</b> [1, 2]
-</center>
-
-<center>
-<b>Hans Petter Langtangen</b> [3, 4]
-</center>
-
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+Let us solve the difference equation in as simple way as possible,
+just to train some programming: \( r=1.5 \), \( N^0=1 \), \( \Delta t=0.5 \)
 
 <p>
-<!-- institution(s) -->
+<!-- begin verbatim block  pypro-->
+<pre><code>import numpy as np
 
-<center>[1] <b>Dept. of Physics, UiO</b></center>
-<center>[2] <b>Dept. of Physics, Michigan State University</b></center>
-<center>[3] <b>Dept. of Informatics, UiO</b></center>
-<center>[4] <b>Center for Biomedical Computing, Simula</b></center>
-<p>
-<center><h4>Oct 18, 2014</h4></center> <!-- date -->
+t = np.linspace(0, 10, 21)  # 20 intervals in [0, 10]
+dt = t[1] - t[0]
+N = np.zeros(t.size)
+
+N[0] = 1
+r = 0.5
+
+for n in range(0, N.size-1, 1):
+    N[n+1] = N[n] + r*dt*N[n]
+    print 'N[%d]=%.1f' % (n+1, N[n+1])
+</code></pre>
+<!-- end verbatim block -->
+</div>
+
+
 <p>
 <p>
 <!-- begin bottom navigation -->
 <table style="width: 100%"><tr><td>
+<div style="text-align: left;"><a href="._csebio011.html">&laquo; Previous</a></div>
 </td><td>
-<div style="text-align: right;"><a href="._csebio001.html">Next &raquo;</a></div>
+<div style="text-align: right;"><a href="._csebio013.html">Next &raquo;</a></div>
 </td></tr></table>
 <!-- end bottom navigation -->
 </p>

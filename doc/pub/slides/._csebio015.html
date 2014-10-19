@@ -138,40 +138,61 @@ MathJax.Hub.Config({
 
 
     
-<a name="part0000"></a>
-<!-- ------------------- main content ---------------------- -->
+<a name="part0015"></a>
+<!-- !split -->
 
-
-
-<center><h1>Integrating computations, mathematics, physics and chemistry in undergraduate biology programs</h1></center>  <!-- document title -->
+<h2>A program relevant for the biological problem  <a name="___sec14"></a></h2>
 
 <p>
-<!-- author(s): Morten Hjorth-Jensen, and Hans Petter Langtangen -->
-
-<center>
-<b>Morten Hjorth-Jensen</b> [1, 2]
-</center>
-
-<center>
-<b>Hans Petter Langtangen</b> [3, 4]
-</center>
-
+<!-- exact r = 0.000694 -->
 
 <p>
-<!-- institution(s) -->
-
-<center>[1] <b>Dept. of Physics, UiO</b></center>
-<center>[2] <b>Dept. of Physics, Michigan State University</b></center>
-<center>[3] <b>Dept. of Informatics, UiO</b></center>
-<center>[4] <b>Center for Biomedical Computing, Simula</b></center>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
 <p>
-<center><h4>Oct 18, 2014</h4></center> <!-- date -->
+<!-- begin verbatim block  pypro-->
+<pre><code>import numpy as np
+
+# Estimate r
+data = np.loadtxt('ecoli.csv', delimiter=',')
+t_e = data[:,0]
+N_e = data[:,1]
+i = 3
+r = (N_e[i+1] - N_e[i])/(N_e[i]*(t_e[i+1] - t_e[i]))
+print 'Estimated r=%.5f' % r
+# Can experiment with r values and see if the model can
+# match the data
+
+T = 1200     # cell can divide after T sec
+t_max = 5*T  # 5 generations in experiment
+t = np.linspace(0, t_max, 1000)
+dt = t[1] - t[0]
+N = np.zeros(t.size)
+
+N[0] = 100
+for n in range(0, len(t)-1, 1):
+    N[n+1] = N[n] + r*dt*N[n]
+
+import matplotlib.pyplot as plt
+plt.plot(t, N, 'r-', t_e, N_e, 'bo')
+plt.xlabel('time [s]');  plt.ylabel('N')
+plt.legend(['model', 'experiment'], loc='upper left')
+plt.show()
+</code></pre>
+<!-- end verbatim block -->
+
+<p>
+Change <code>r</code> in the program and play around to make a better fit!
+</div>
+
+
 <p>
 <p>
 <!-- begin bottom navigation -->
 <table style="width: 100%"><tr><td>
+<div style="text-align: left;"><a href="._csebio014.html">&laquo; Previous</a></div>
 </td><td>
-<div style="text-align: right;"><a href="._csebio001.html">Next &raquo;</a></div>
+<div style="text-align: right;"><a href="._csebio016.html">Next &raquo;</a></div>
 </td></tr></table>
 <!-- end bottom navigation -->
 </p>

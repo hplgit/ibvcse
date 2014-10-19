@@ -60,62 +60,63 @@ div { text-align: justify; text-justify: inter-word; }
               (' Current status ', 2, None, '___sec2'),
               (' Possible pilot project ', 2, None, '___sec3'),
               (' The pedagogical framework ', 2, None, '___sec4'),
-              (' Example 1: visualizing curves & basic programming ',
+              (' Example 1: ecoli lab experiment ', 2, None, '___sec5'),
+              (' Visualize data ', 2, None, '___sec6'),
+              (' Concepts that are implicitly introduced ',
                2,
                None,
-               '___sec5'),
-              (' Example 2: population growth ', 2, None, '___sec6'),
-              (' Examples: *Predator-Prey* model  ', 2, None, '___sec7'),
-              (' Examples: Simple *Predator-Prey* model  ',
-               2,
-               None,
-               '___sec8'),
-              (' Hudson bay data ', 2, None, '___sec9'),
-              (' Example of possible cases, *Predator-Prey* model  ',
-               2,
-               None,
-               '___sec10'),
-              (' Hares and lynx in Hudson bay from 1900 to 1920 ',
-               2,
-               None,
-               '___sec11'),
-              (' Example of possible cases, *Predator-Prey* model  ',
-               2,
-               None,
-               '___sec12'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
-               2,
-               None,
-               '___sec13'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
+               '___sec7'),
+              (' Read data from file ', 2, None, '___sec8'),
+              (' Lab journal ', 2, None, '___sec9'),
+              (' How can we reason about the process? ', 2, None, '___sec10'),
+              (' The first simple program ', 2, None, '___sec11'),
+              (' The output ', 2, None, '___sec12'),
+              (' Parameter estimation ', 2, None, '___sec13'),
+              (' A program relevant for the biological problem ',
                2,
                None,
                '___sec14'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
-               2,
-               None,
-               '___sec15'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
+              (' Discuss the nature of such a model ', 2, None, '___sec15'),
+              (' Adding model complexity: Predator-Prey model from ecology ',
                2,
                None,
                '___sec16'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
-               2,
-               None,
-               '___sec17'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
-               2,
-               None,
-               '___sec18'),
-              (' Example of possible cases, *Predator-Prey* model  ',
-               2,
-               None,
-               '___sec19'),
-              (' Example of possible cases, *Predator-Prey* model, the bottom-up approach  ',
+              (' Case study from Hudson bay ', 2, None, '___sec17'),
+              (' Hudson bay data ', 2, None, '___sec18'),
+              (' Plotting the data ', 2, None, '___sec19'),
+              (' Hares and lynx in Hudson bay from 1900 to 1920 ',
                2,
                None,
                '___sec20'),
-              (' Example of possible cases, Genomics  ', 2, None, '___sec21')]}
+              (' Why now create a computer model for the hare and lynx populations? ',
+               2,
+               None,
+               '___sec21'),
+              (' The traditional (top-down) approach ', 2, None, '___sec22'),
+              (" The ``new'' discrete bottom-up approach ",
+               2,
+               None,
+               '___sec23'),
+              (' Basic (computer-friendly) mathematics notation ',
+               2,
+               None,
+               '___sec24'),
+              (' Basic dynamics of the population of hares ',
+               2,
+               None,
+               '___sec25'),
+              (' Basic dynamics of the population of lynx ',
+               2,
+               None,
+               '___sec26'),
+              (' Evolution equations ', 2, None, '___sec27'),
+              (' Adapt the model to the Hudson Bay case ',
+               2,
+               None,
+               '___sec28'),
+              (' The program ', 2, None, '___sec29'),
+              (' The plot ', 2, None, '___sec30'),
+              (' Other examples ', 2, None, '___sec31')]}
 end of tocinfo -->
 
 <body>
@@ -140,7 +141,7 @@ MathJax.Hub.Config({
 <a name="part0007"></a>
 <!-- !split -->
 
-<h2>Example 2: population growth  <a name="___sec6"></a></h2>
+<h2>Visualize data  <a name="___sec6"></a></h2>
 
 <p>
 <div class="alert alert-block alert-block alert-text-normal">
@@ -148,26 +149,24 @@ MathJax.Hub.Config({
 <p>
 
 <ul>
- <li> Target: evolution of cell culture, animal population, ...</li>
- <li> Intuitive reasoning about the dynamics:</li>
-
-<ol>
- <li> \( 2N \) individuals get twice as many new individuals \( \Delta N \) in a time
-    interval \( \Delta t \) as \( N \) individuals</li>
- <li> \( \Delta N \propto N \)</li>
- <li> \( N \) individuals get twice as many new individuals \( \Delta N \) in
-    time \( 2\Delta t \) as in time \( \Delta t \)</li>
- <li> \( \Delta N \propto\Delta t \)</li>
- <li> Proposed model: \( \Delta N = a\Delta t N \) for some unknown constant \( a \)</li>
- <li> Control: model is compatible with 1 and 3</li>
-</ol>
-
- <li> Describe evolution in discrete time: \( t_n=n\Delta t \)</li>
- <li> Program-friendly notation: \( N \) at \( t_n \) is \( N^n \)</li>
- <li> \( N^{n+1} = N^n + \Delta N \)</li>
+ <li> Meet a text editor and a terminal window</li>
+ <li> Very basic Unix</li>
 </ul>
 
-$$ N^{n+1} = N^n + a\Delta t N^n$$
+First program:
+
+<p>
+<!-- begin verbatim block  pypro-->
+<pre><code>t = [0, 600, 1200, 1800, 2400, 3000, 3600,
+     4200, 4800, 5400, 6000]
+N = [100, 140, 250, 360, 480, 820, 1300, 1700, 2900, 3900, 7000]
+import matplotlib.pyplot as plt
+plt.plot(t, N, 'ro')
+plt.xlabel('t [s]')
+plt.ylabel('N')
+plt.show()
+</code></pre>
+<!-- end verbatim block -->
 </div>
 
 

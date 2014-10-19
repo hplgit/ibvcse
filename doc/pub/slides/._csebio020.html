@@ -138,40 +138,54 @@ MathJax.Hub.Config({
 
 
     
-<a name="part0000"></a>
-<!-- ------------------- main content ---------------------- -->
+<a name="part0020"></a>
+<!-- !split -->
 
-
-
-<center><h1>Integrating computations, mathematics, physics and chemistry in undergraduate biology programs</h1></center>  <!-- document title -->
+<h2>Plotting the data  <a name="___sec19"></a></h2>
 
 <p>
-<!-- author(s): Morten Hjorth-Jensen, and Hans Petter Langtangen -->
 
-<center>
-<b>Morten Hjorth-Jensen</b> [1, 2]
-</center>
-
-<center>
-<b>Hans Petter Langtangen</b> [3, 4]
-</center>
+<!-- begin inline comment -->
+<font color="red">(<b>hpl 1</b>: I greatly simplified the plotting and used only basic Matplotlib syntax, and made sure we prefix <code>plt.</code>. The plot is approx the same apart from smaller fontsize (by default).)</font>
+<!-- end inline comment -->
 
 
 <p>
-<!-- institution(s) -->
-
-<center>[1] <b>Dept. of Physics, UiO</b></center>
-<center>[2] <b>Dept. of Physics, Michigan State University</b></center>
-<center>[3] <b>Dept. of Informatics, UiO</b></center>
-<center>[4] <b>Center for Biomedical Computing, Simula</b></center>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
 <p>
-<center><h4>Oct 18, 2014</h4></center> <!-- date -->
+<!-- begin verbatim block  pypro-->
+<pre><code>import numpy as np
+from  matplotlib import pyplot as plt
+
+# Load in data file
+data = np.loadtxt('Hudson_Bay.dat', delimiter=',', skiprows=1)
+# Make arrays containing x-axis and hares and lynx populations
+year = data[:,0]
+hares = data[:,1]
+lynx = data[:,2]
+
+plt.plot(year, hares ,'b-+', year, lynx, 'r-o')
+plt.axis([1900,1920,0, 100.0])
+plt.xlabel(r'Year')
+plt.ylabel(r'Numbers of hares and lynx ')
+plt.legend(('Hares','Lynx'), loc='upper right')
+plt.title(r'Population of hares and lynx from 1900-1920 (x1000)}')
+plt.savefig('Hudson_Bay_data.pdf')
+plt.savefig('Hudson_Bay_data.png')
+plt.show()
+</code></pre>
+<!-- end verbatim block -->
+</div>
+
+
 <p>
 <p>
 <!-- begin bottom navigation -->
 <table style="width: 100%"><tr><td>
+<div style="text-align: left;"><a href="._csebio019.html">&laquo; Previous</a></div>
 </td><td>
-<div style="text-align: right;"><a href="._csebio001.html">Next &raquo;</a></div>
+<div style="text-align: right;"><a href="._csebio021.html">Next &raquo;</a></div>
 </td></tr></table>
 <!-- end bottom navigation -->
 </p>

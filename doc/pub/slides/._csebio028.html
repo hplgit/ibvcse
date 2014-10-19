@@ -138,40 +138,42 @@ MathJax.Hub.Config({
 
 
     
-<a name="part0000"></a>
-<!-- ------------------- main content ---------------------- -->
+<a name="part0028"></a>
+<!-- !split -->
 
-
-
-<center><h1>Integrating computations, mathematics, physics and chemistry in undergraduate biology programs</h1></center>  <!-- document title -->
+<h2>Evolution equations  <a name="___sec27"></a></h2>
 
 <p>
-<!-- author(s): Morten Hjorth-Jensen, and Hans Petter Langtangen -->
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+By writing up the definition of \( \Delta H \) and \( \Delta L \), and putting
+all assumed known terms \( H^n \) and \( L^n \) on the right-hand side, we have
 
-<center>
-<b>Morten Hjorth-Jensen</b> [1, 2]
-</center>
+$$ H^{n+1} = H^n + a\Delta t H^n - b\Delta t H^n L^n $$
 
-<center>
-<b>Hans Petter Langtangen</b> [3, 4]
-</center>
+
+$$ L^{n+1} = L^n + d\Delta t H^nL^n - c\Delta t L^n $$
 
 
 <p>
-<!-- institution(s) -->
+Note:
 
-<center>[1] <b>Dept. of Physics, UiO</b></center>
-<center>[2] <b>Dept. of Physics, Michigan State University</b></center>
-<center>[3] <b>Dept. of Informatics, UiO</b></center>
-<center>[4] <b>Center for Biomedical Computing, Simula</b></center>
-<p>
-<center><h4>Oct 18, 2014</h4></center> <!-- date -->
+<ul>
+ <li> These equations are ready to be implemented!</li>
+ <li> But to start, we need \( H^0 \) and \( L^0 \) (which we can get from the data)</li>
+ <li> We also need values for \( a \), \( b \), \( d \), \( c \)</li>
+</ul>
+</div>
+
+
 <p>
 <p>
 <!-- begin bottom navigation -->
 <table style="width: 100%"><tr><td>
+<div style="text-align: left;"><a href="._csebio027.html">&laquo; Previous</a></div>
 </td><td>
-<div style="text-align: right;"><a href="._csebio001.html">Next &raquo;</a></div>
+<div style="text-align: right;"><a href="._csebio029.html">Next &raquo;</a></div>
 </td></tr></table>
 <!-- end bottom navigation -->
 </p>
