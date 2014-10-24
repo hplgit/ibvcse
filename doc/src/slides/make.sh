@@ -10,16 +10,21 @@ function system {
   fi
 }
 
-system doconce format html $name --html_style=solarized3
+comments=--skip_inline_comments
+
+system doconce format html $name --html_style=solarized3 $comments
 system doconce slides_html $name doconce --nav_button=text
 
-system doconce format html $name --html_style=bloodish --html_output=${name}-1
-system doconce split_html $name --method=space10
+system doconce format html $name --html_style=bloodish --html_output=${name}-1 $comments
+system doconce split_html ${name}-1 --method=space10
 
-system doconce format ipynb $name
+system doconce format html $name --html_output=${name}-reveal $comments --pygments_html_style=native --keep_pygments_html_bg
+system doconce slides_html ${name}-reveal reveal --html_slide_theme=darkgray
+
+system doconce format ipynb $name $comments
 
 beamertheme=red_shadow
-system doconce format pdflatex $name --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period
+system doconce format pdflatex $name --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period $comments
 system doconce ptex2tex $name envir=minted
 system doconce slides_beamer $name --beamer_slide_theme=$beamertheme
 system pdflatex -shell-escape ${name}

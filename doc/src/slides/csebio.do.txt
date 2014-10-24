@@ -23,21 +23,15 @@ DATE: today
 !bblock
 !bpop
  * Do we need to still following the tradition and teach mathematics, physics, computations, chemistry, etc. in separate discipline-specific courses?
- * Results:
-  * uninteresting to first study tools when you want to study biology
-  * little understanding of what the tools are good for
-  * minor utilization of tools later in biology
+  * Uninteresting to first study tools when you want to study biology
+  * Little understanding of what the tools are good for
+  * Minor utilization of tools later in biology
  * It's time for new thinking:
   * Just-in-time teaching: teach tools *when needed*
   * Teach tools in the *context of biology*
   * Emphasize development of *intuition and understanding*
-  * Base learning of the students' own *explorations*
-  * Base teaching on examples and projects (from biology)
+  * Base learning of the students' own *explorations in biology projects*
   * Integrate lab work with computing tools
-  * Teach tools in BIOxxxx courses - this emphasizes the importance of
-    computing, physics, mathematics, ... in biology
- * Corollary: this new thinking can be applied in chemistry, geology, ...
-   and all non-math-oriented programs
 !epop
 !eblock
 
@@ -65,8 +59,7 @@ DATE: today
  * CSE+IBV people identify a set of possible examples
  * PhD students work closely with CSE+IBV people to find data,
    define models, and write documents
- * Intro course in computing and programming for IBV teachers, using
-   selected examples (spring 2015)
+ * Spring 2015: intro course in computing and programming for IBV teachers, using selected examples
  * Educational workshop at IBV:
    * Present results from the project
    * Discuss how and where to implement examples in BIOxxxx courses
@@ -83,13 +76,12 @@ DATE: today
    mathematics, programming, physics/chemistry, ...
  * Starting point: data from lab or field experiments
  * Visualize data
- * Derive computational models directly from mathematical reasoning
+ * Derive computational models directly from mathematical/intuitive *reasoning*
  * Program models, fit parameters, compare with data
  * Develop intuition and understanding based on
   * the principles behind the model
   * exploration of the model (``what if'')
   * prediction of new experiments
- * For each example, document this scientific method in a common, structured framework
 !eblock
 
 !split
@@ -155,7 +147,8 @@ plt.show()
 !ec
 
 !bnotice Typical pattern:
-The population grows faster and faster.
+The population grows faster and faster. Why? Is there an
+underlying (general) mechanism?
 !enotice
 !eblock
 
@@ -184,7 +177,7 @@ Use IPython notebook as lab journal.
    constants $b$ (births) and $d$ (deaths)
  o Describe evolution in discrete time: $t_n=n\Delta t$
  o Program-friendly notation: $N$ at $t_n$ is $N^n$
- o Math model: $N^{n+1} = N^n + r\Delta N$ ($r=b-d)$
+ o Math model: $N^{n+1} = N^n + r\Delta N$, $r=b-d$
  o Program model: `N[n+1] = N[n] + r*dt*N[n]`
 !epop
 !eblock
@@ -274,6 +267,7 @@ Change `r` in the program and play around to make a better fit!
  * Understand that all such effects are merged into one parameter $r$
  * Understand that the reasoning must be the same whether we
    have bacteria, animals or humans - this is a generic model!
+ * Even the interest rate in a bank follows the same model
 !eblock
 
 !split
