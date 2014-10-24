@@ -20,7 +20,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/darkgray.css" id="theme">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 <!--
 <link rel="stylesheet" href="reveal.js/css/reveal.css">
 <link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">
@@ -335,8 +335,8 @@ stored in Excel and written to a CVS file:
 
 <p>
 
-<!-- code=text (!bc txt) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%">0,100
+<!-- code=text (!bc txt) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%">0,100
 600,140
 1200,250
 1800,360
@@ -376,15 +376,15 @@ First program:
 
 <p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%"><span style="color: #d0d0d0">t</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">600</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1200</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1800</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">2400</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">3000</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">3600</span><span style="color: #d0d0d0">,</span>
-     <span style="color: #3677a9">4200</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">4800</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">5400</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">6000</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">N</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">100</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">140</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">250</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">360</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">480</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">820</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1300</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1700</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">2900</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">3900</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">7000</span><span style="color: #d0d0d0">]</span>
-<span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">plt</span>
-<span style="color: #d0d0d0">plt.plot(t,</span> <span style="color: #d0d0d0">N,</span> <span style="color: #ed9d13">&#39;ro&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.xlabel(</span><span style="color: #ed9d13">&#39;t [s]&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.ylabel(</span><span style="color: #ed9d13">&#39;N&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.show()</span>
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%">t <span style="color: #666666">=</span> [<span style="color: #666666">0</span>, <span style="color: #666666">600</span>, <span style="color: #666666">1200</span>, <span style="color: #666666">1800</span>, <span style="color: #666666">2400</span>, <span style="color: #666666">3000</span>, <span style="color: #666666">3600</span>,
+     <span style="color: #666666">4200</span>, <span style="color: #666666">4800</span>, <span style="color: #666666">5400</span>, <span style="color: #666666">6000</span>]
+N <span style="color: #666666">=</span> [<span style="color: #666666">100</span>, <span style="color: #666666">140</span>, <span style="color: #666666">250</span>, <span style="color: #666666">360</span>, <span style="color: #666666">480</span>, <span style="color: #666666">820</span>, <span style="color: #666666">1300</span>, <span style="color: #666666">1700</span>, <span style="color: #666666">2900</span>, <span style="color: #666666">3900</span>, <span style="color: #666666">7000</span>]
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+plt<span style="color: #666666">.</span>plot(t, N, <span style="color: #BA2121">&#39;ro&#39;</span>)
+plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;t [s]&#39;</span>)
+plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;N&#39;</span>)
+plt<span style="color: #666666">.</span>show()
 </pre></div>
 
 </div>
@@ -433,17 +433,17 @@ between points.
 <p>
 <p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%"><span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">numpy</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">np</span>
-<span style="color: #d0d0d0">data</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.loadtxt(</span><span style="color: #ed9d13">&#39;ecoli.csv&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">delimiter=</span><span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #6ab825; font-weight: bold">print</span> <span style="color: #d0d0d0">data</span>  <span style="color: #999999; font-style: italic"># look at the format</span>
-<span style="color: #d0d0d0">t</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">N</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span>
-<span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">plt</span>
-<span style="color: #d0d0d0">plt.plot(t,</span> <span style="color: #d0d0d0">N,</span> <span style="color: #ed9d13">&#39;ro&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.xlabel(</span><span style="color: #ed9d13">&#39;t [s]&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.ylabel(</span><span style="color: #ed9d13">&#39;N&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.show()</span>
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;ecoli.csv&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>)
+<span style="color: #008000; font-weight: bold">print</span> data  <span style="color: #408080; font-style: italic"># look at the format</span>
+t <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
+N <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+plt<span style="color: #666666">.</span>plot(t, N, <span style="color: #BA2121">&#39;ro&#39;</span>)
+plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;t [s]&#39;</span>)
+plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;N&#39;</span>)
+plt<span style="color: #666666">.</span>show()
 </pre></div>
 <p>
 <div class="alert alert-block alert-notice alert-text-normal">
@@ -527,19 +527,19 @@ just to train some programming: \( r=1.5 \), \( N^0=1 \), \( \Delta t=0.5 \)
 
 <p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%"><span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">numpy</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">np</span>
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
 
-<span style="color: #d0d0d0">t</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.linspace(</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">10</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">21</span><span style="color: #d0d0d0">)</span>  <span style="color: #999999; font-style: italic"># 20 intervals in [0, 10]</span>
-<span style="color: #d0d0d0">dt</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">t[</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">t[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">N</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.zeros(t.size)</span>
+t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #666666">0</span>, <span style="color: #666666">10</span>, <span style="color: #666666">21</span>)  <span style="color: #408080; font-style: italic"># 20 intervals in [0, 10]</span>
+dt <span style="color: #666666">=</span> t[<span style="color: #666666">1</span>] <span style="color: #666666">-</span> t[<span style="color: #666666">0</span>]
+N <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(t<span style="color: #666666">.</span>size)
 
-<span style="color: #d0d0d0">N[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span>
-<span style="color: #d0d0d0">r</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0.5</span>
+N[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+r <span style="color: #666666">=</span> <span style="color: #666666">0.5</span>
 
-<span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">n</span> <span style="color: #6ab825; font-weight: bold">in</span> <span style="color: #24909d">range</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">N.size-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">):</span>
-    <span style="color: #d0d0d0">N[n+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">N[n]</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0">r*dt*N[n]</span>
-    <span style="color: #6ab825; font-weight: bold">print</span> <span style="color: #ed9d13">&#39;N[%d]=%.1f&#39;</span> <span style="color: #d0d0d0">%</span> <span style="color: #d0d0d0">(n+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">N[n+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">])</span>
+<span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, N<span style="color: #666666">.</span>size<span style="color: #666666">-1</span>, <span style="color: #666666">1</span>):
+    N[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> N[n] <span style="color: #666666">+</span> r<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>N[n]
+    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;N[</span><span style="color: #BB6688; font-weight: bold">%d</span><span style="color: #BA2121">]=</span><span style="color: #BB6688; font-weight: bold">%.1f</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (n<span style="color: #666666">+1</span>, N[n<span style="color: #666666">+1</span>])
 </pre></div>
 
 </div>
@@ -556,8 +556,8 @@ just to train some programming: \( r=1.5 \), \( N^0=1 \), \( \Delta t=0.5 \)
 
 <p>
 
-<!-- code=text typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%">N[1]=1.2
+<!-- code=text typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%">N[1]=1.2
 N[2]=1.6
 N[3]=2.0
 N[4]=2.4
@@ -643,34 +643,34 @@ too advanced at this stage.
 <p>
 <p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%"><span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">numpy</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">np</span>
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
 
-<span style="color: #999999; font-style: italic"># Estimate r</span>
-<span style="color: #d0d0d0">data</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.loadtxt(</span><span style="color: #ed9d13">&#39;ecoli.csv&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">delimiter=</span><span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">t_e</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">N_e</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">i</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">2</span>  <span style="color: #999999; font-style: italic"># Data point (i,i+1) used to estimate r</span>
-<span style="color: #d0d0d0">r</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">(N_e[i+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">N_e[i])/(N_e[i]*(t_e[i+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">t_e[i]))</span>
-<span style="color: #6ab825; font-weight: bold">print</span> <span style="color: #ed9d13">&#39;Estimated r=%.5f&#39;</span> <span style="color: #d0d0d0">%</span> <span style="color: #d0d0d0">r</span>
-<span style="color: #999999; font-style: italic"># Can experiment with r values and see if the model can</span>
-<span style="color: #999999; font-style: italic"># match the data better</span>
+<span style="color: #408080; font-style: italic"># Estimate r</span>
+data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;ecoli.csv&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>)
+t_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
+N_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
+i <span style="color: #666666">=</span> <span style="color: #666666">2</span>  <span style="color: #408080; font-style: italic"># Data point (i,i+1) used to estimate r</span>
+r <span style="color: #666666">=</span> (N_e[i<span style="color: #666666">+1</span>] <span style="color: #666666">-</span> N_e[i])<span style="color: #666666">/</span>(N_e[i]<span style="color: #666666">*</span>(t_e[i<span style="color: #666666">+1</span>] <span style="color: #666666">-</span> t_e[i]))
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;Estimated r=</span><span style="color: #BB6688; font-weight: bold">%.5f</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> r
+<span style="color: #408080; font-style: italic"># Can experiment with r values and see if the model can</span>
+<span style="color: #408080; font-style: italic"># match the data better</span>
 
-<span style="color: #d0d0d0">T</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1200</span>     <span style="color: #999999; font-style: italic"># cell can divide after T sec</span>
-<span style="color: #d0d0d0">t_max</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">*T</span>  <span style="color: #999999; font-style: italic"># 5 generations in experiment</span>
-<span style="color: #d0d0d0">t</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.linspace(</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">t_max,</span> <span style="color: #3677a9">1000</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">dt</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">t[</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">t[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">N</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.zeros(t.size)</span>
+T <span style="color: #666666">=</span> <span style="color: #666666">1200</span>     <span style="color: #408080; font-style: italic"># cell can divide after T sec</span>
+t_max <span style="color: #666666">=</span> <span style="color: #666666">5*</span>T  <span style="color: #408080; font-style: italic"># 5 generations in experiment</span>
+t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #666666">0</span>, t_max, <span style="color: #666666">1000</span>)
+dt <span style="color: #666666">=</span> t[<span style="color: #666666">1</span>] <span style="color: #666666">-</span> t[<span style="color: #666666">0</span>]
+N <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(t<span style="color: #666666">.</span>size)
 
-<span style="color: #d0d0d0">N[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">100</span>
-<span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">n</span> <span style="color: #6ab825; font-weight: bold">in</span> <span style="color: #24909d">range</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #24909d">len</span><span style="color: #d0d0d0">(t)-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">):</span>
-    <span style="color: #d0d0d0">N[n+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">N[n]</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0">r*dt*N[n]</span>
+N[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">100</span>
+<span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, <span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>, <span style="color: #666666">1</span>):
+    N[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> N[n] <span style="color: #666666">+</span> r<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>N[n]
 
-<span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">plt</span>
-<span style="color: #d0d0d0">plt.plot(t,</span> <span style="color: #d0d0d0">N,</span> <span style="color: #ed9d13">&#39;r-&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">t_e,</span> <span style="color: #d0d0d0">N_e,</span> <span style="color: #ed9d13">&#39;bo&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.xlabel(</span><span style="color: #ed9d13">&#39;time [s]&#39;</span><span style="color: #d0d0d0">);</span>  <span style="color: #d0d0d0">plt.ylabel(</span><span style="color: #ed9d13">&#39;N&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.legend([</span><span style="color: #ed9d13">&#39;model&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;experiment&#39;</span><span style="color: #d0d0d0">],</span> <span style="color: #d0d0d0">loc=</span><span style="color: #ed9d13">&#39;upper left&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.show()</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+plt<span style="color: #666666">.</span>plot(t, N, <span style="color: #BA2121">&#39;r-&#39;</span>, t_e, N_e, <span style="color: #BA2121">&#39;bo&#39;</span>)
+plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;time [s]&#39;</span>);  plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;N&#39;</span>)
+plt<span style="color: #666666">.</span>legend([<span style="color: #BA2121">&#39;model&#39;</span>, <span style="color: #BA2121">&#39;experiment&#39;</span>], loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper left&#39;</span>)
+plt<span style="color: #666666">.</span>show()
 </pre></div>
 <p>
 Change <code>r</code> in the program and play around to make a better fit!
@@ -817,26 +817,26 @@ We shall demonstrate the scientific method by
 <p>
 <p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%"><span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">numpy</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">np</span>
-<span style="color: #6ab825; font-weight: bold">from</span>  <span style="color: #447fcf; text-decoration: underline">matplotlib</span> <span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #d0d0d0">pyplot</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #d0d0d0">plt</span>
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+<span style="color: #008000; font-weight: bold">from</span>  <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> pyplot <span style="color: #008000; font-weight: bold">as</span> plt
 
-<span style="color: #999999; font-style: italic"># Load in data file</span>
-<span style="color: #d0d0d0">data</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.loadtxt(</span><span style="color: #ed9d13">&#39;Hudson_Bay.dat&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">delimiter=</span><span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">skiprows=</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
-<span style="color: #999999; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
-<span style="color: #d0d0d0">year</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">hares</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">lynx</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">2</span><span style="color: #d0d0d0">]</span>
+<span style="color: #408080; font-style: italic"># Load in data file</span>
+data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;Hudson_Bay.dat&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>, skiprows<span style="color: #666666">=1</span>)
+<span style="color: #408080; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
+year <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
+hares <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
+lynx <span style="color: #666666">=</span> data[:,<span style="color: #666666">2</span>]
 
-<span style="color: #d0d0d0">plt.plot(year,</span> <span style="color: #d0d0d0">hares</span> <span style="color: #d0d0d0">,</span><span style="color: #ed9d13">&#39;b-+&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">year,</span> <span style="color: #d0d0d0">lynx,</span> <span style="color: #ed9d13">&#39;r-o&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.axis([</span><span style="color: #3677a9">1900</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">1920</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">100.0</span><span style="color: #d0d0d0">])</span>
-<span style="color: #d0d0d0">plt.xlabel(</span><span style="color: #ed9d13">r&#39;Year&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.ylabel(</span><span style="color: #ed9d13">r&#39;Numbers of hares and lynx &#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.legend((</span><span style="color: #ed9d13">&#39;Hares&#39;</span><span style="color: #d0d0d0">,</span><span style="color: #ed9d13">&#39;Lynx&#39;</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">loc=</span><span style="color: #ed9d13">&#39;upper right&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.title(</span><span style="color: #ed9d13">r&#39;Population of hares and lynx from 1900-1920 (x1000)}&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.savefig(</span><span style="color: #ed9d13">&#39;Hudson_Bay_data.pdf&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.savefig(</span><span style="color: #ed9d13">&#39;Hudson_Bay_data.png&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.show()</span>
+plt<span style="color: #666666">.</span>plot(year, hares ,<span style="color: #BA2121">&#39;b-+&#39;</span>, year, lynx, <span style="color: #BA2121">&#39;r-o&#39;</span>)
+plt<span style="color: #666666">.</span>axis([<span style="color: #666666">1900</span>,<span style="color: #666666">1920</span>,<span style="color: #666666">0</span>, <span style="color: #666666">100.0</span>])
+plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">r&#39;Year&#39;</span>)
+plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">r&#39;Numbers of hares and lynx &#39;</span>)
+plt<span style="color: #666666">.</span>legend((<span style="color: #BA2121">&#39;Hares&#39;</span>,<span style="color: #BA2121">&#39;Lynx&#39;</span>), loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper right&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #BA2121">r&#39;Population of hares and lynx from 1900-1920 (x1000)}&#39;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&#39;Hudson_Bay_data.pdf&#39;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&#39;Hudson_Bay_data.png&#39;</span>)
+plt<span style="color: #666666">.</span>show()
 </pre></div>
 
 </div>
@@ -1117,50 +1117,50 @@ Note:
 <p>
 <p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "native" -->
-<div class="highlight" style="background: #202020"><pre style="font-size: 80%; line-height: 125%"><span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">numpy</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">np</span>
-<span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #447fcf; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #6ab825; font-weight: bold">as</span> <span style="color: #447fcf; text-decoration: underline">plt</span>
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="font-size: 80%; line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
 
-<span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">solver</span><span style="color: #d0d0d0">(m,</span> <span style="color: #d0d0d0">H0,</span> <span style="color: #d0d0d0">L0,</span> <span style="color: #d0d0d0">dt,</span> <span style="color: #d0d0d0">a,</span> <span style="color: #d0d0d0">b,</span> <span style="color: #d0d0d0">c,</span> <span style="color: #d0d0d0">d,</span> <span style="color: #d0d0d0">t0):</span>
-    <span style="color: #ed9d13">&quot;&quot;&quot;Solve the difference equations for H and L over m years</span>
-<span style="color: #ed9d13">    with time step dt (measured in years.&quot;&quot;&quot;</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(m, H0, L0, dt, a, b, c, d, t0):
+    <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Solve the difference equations for H and L over m years</span>
+<span style="color: #BA2121; font-style: italic">    with time step dt (measured in years.&quot;&quot;&quot;</span>
 
-    <span style="color: #d0d0d0">num_intervals</span> <span style="color: #d0d0d0">=</span> <span style="color: #24909d">int</span><span style="color: #d0d0d0">(m/</span><span style="color: #24909d">float</span><span style="color: #d0d0d0">(dt))</span>
-    <span style="color: #d0d0d0">t</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.linspace(t0,</span> <span style="color: #d0d0d0">t0</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0">m,</span> <span style="color: #d0d0d0">num_intervals+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
-    <span style="color: #d0d0d0">H</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.zeros(t.size)</span>
-    <span style="color: #d0d0d0">L</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.zeros(t.size)</span>
+    num_intervals <span style="color: #666666">=</span> <span style="color: #008000">int</span>(m<span style="color: #666666">/</span><span style="color: #008000">float</span>(dt))
+    t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(t0, t0 <span style="color: #666666">+</span> m, num_intervals<span style="color: #666666">+1</span>)
+    H <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(t<span style="color: #666666">.</span>size)
+    L <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(t<span style="color: #666666">.</span>size)
 
-    <span style="color: #6ab825; font-weight: bold">print</span> <span style="color: #ed9d13">&#39;Init:&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">H0,</span> <span style="color: #d0d0d0">L0,</span> <span style="color: #d0d0d0">dt</span>
-    <span style="color: #d0d0d0">H[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">H0</span>
-    <span style="color: #d0d0d0">L[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">L0</span>
+    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;Init:&#39;</span>, H0, L0, dt
+    H[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> H0
+    L[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> L0
 
-    <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">n</span> <span style="color: #6ab825; font-weight: bold">in</span> <span style="color: #24909d">range</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #24909d">len</span><span style="color: #d0d0d0">(t)-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">):</span>
-        <span style="color: #d0d0d0">H[n+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">H[n]</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0">a*dt*H[n]</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">b*dt*H[n]*L[n]</span>
-        <span style="color: #d0d0d0">L[n+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">L[n]</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0">d*dt*H[n]*L[n]</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">c*dt*L[n]</span>
-    <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #d0d0d0">H,</span> <span style="color: #d0d0d0">L,</span> <span style="color: #d0d0d0">t</span>
+    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, <span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>):
+        H[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> H[n] <span style="color: #666666">+</span> a<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>H[n] <span style="color: #666666">-</span> b<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>H[n]<span style="color: #666666">*</span>L[n]
+        L[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> L[n] <span style="color: #666666">+</span> d<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>H[n]<span style="color: #666666">*</span>L[n] <span style="color: #666666">-</span> c<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>L[n]
+    <span style="color: #008000; font-weight: bold">return</span> H, L, t
 
-<span style="color: #999999; font-style: italic"># Load in data file</span>
-<span style="color: #d0d0d0">data</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">np.loadtxt(</span><span style="color: #ed9d13">&#39;Hudson_Bay.csv&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">delimiter=</span><span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">skiprows=</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
-<span style="color: #999999; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
-<span style="color: #d0d0d0">t_e</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">H_e</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span>
-<span style="color: #d0d0d0">L_e</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data[:,</span><span style="color: #3677a9">2</span><span style="color: #d0d0d0">]</span>
+<span style="color: #408080; font-style: italic"># Load in data file</span>
+data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;Hudson_Bay.csv&#39;</span>, delimiter<span style="color: #666666">=</span><span style="color: #BA2121">&#39;,&#39;</span>, skiprows<span style="color: #666666">=1</span>)
+<span style="color: #408080; font-style: italic"># Make arrays containing x-axis and hares and lynx populations</span>
+t_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
+H_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
+L_e <span style="color: #666666">=</span> data[:,<span style="color: #666666">2</span>]
 
-<span style="color: #999999; font-style: italic"># Simulate using the model</span>
-<span style="color: #d0d0d0">H,</span> <span style="color: #d0d0d0">L,</span> <span style="color: #d0d0d0">t</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">solver(m=</span><span style="color: #3677a9">20</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">H0=</span><span style="color: #3677a9">34.91</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">L0=</span><span style="color: #3677a9">3.857</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">dt=</span><span style="color: #3677a9">0.1</span><span style="color: #d0d0d0">,</span>
-                 <span style="color: #d0d0d0">a=</span><span style="color: #3677a9">0.4807</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">b=</span><span style="color: #3677a9">0.02482</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">c=</span><span style="color: #3677a9">0.9272</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">d=</span><span style="color: #3677a9">0.02756</span><span style="color: #d0d0d0">,</span>
-                 <span style="color: #d0d0d0">t0=</span><span style="color: #3677a9">1900</span><span style="color: #d0d0d0">)</span>
+<span style="color: #408080; font-style: italic"># Simulate using the model</span>
+H, L, t <span style="color: #666666">=</span> solver(m<span style="color: #666666">=20</span>, H0<span style="color: #666666">=34.91</span>, L0<span style="color: #666666">=3.857</span>, dt<span style="color: #666666">=0.1</span>,
+                 a<span style="color: #666666">=0.4807</span>, b<span style="color: #666666">=0.02482</span>, c<span style="color: #666666">=0.9272</span>, d<span style="color: #666666">=0.02756</span>,
+                 t0<span style="color: #666666">=1900</span>)
 
-<span style="color: #999999; font-style: italic"># Visualize simulations and data</span>
-<span style="color: #d0d0d0">plt.plot(t_e,</span> <span style="color: #d0d0d0">H_e,</span> <span style="color: #ed9d13">&#39;b-+&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">t_e,</span> <span style="color: #d0d0d0">L_e,</span> <span style="color: #ed9d13">&#39;r-o&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">t,</span> <span style="color: #d0d0d0">H,</span> <span style="color: #ed9d13">&#39;m--&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">t,</span> <span style="color: #d0d0d0">L,</span> <span style="color: #ed9d13">&#39;k--&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.xlabel(</span><span style="color: #ed9d13">&#39;Year&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.ylabel(</span><span style="color: #ed9d13">&#39;Numbers of hares and lynx&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.axis([</span><span style="color: #3677a9">1900</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1920</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">140</span><span style="color: #d0d0d0">])</span>
-<span style="color: #d0d0d0">plt.title(</span><span style="color: #ed9d13">r&#39;Population of hares and lynx 1900-1920 (x1000)&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.legend((</span><span style="color: #ed9d13">&#39;H_e&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;L_e&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;H&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;L&#39;</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">loc=</span><span style="color: #ed9d13">&#39;upper left&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.savefig(</span><span style="color: #ed9d13">&#39;Hudson_Bay_sim.pdf&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.savefig(</span><span style="color: #ed9d13">&#39;Hudson_Bay_sim.png&#39;</span><span style="color: #d0d0d0">)</span>
-<span style="color: #d0d0d0">plt.show()</span>
+<span style="color: #408080; font-style: italic"># Visualize simulations and data</span>
+plt<span style="color: #666666">.</span>plot(t_e, H_e, <span style="color: #BA2121">&#39;b-+&#39;</span>, t_e, L_e, <span style="color: #BA2121">&#39;r-o&#39;</span>, t, H, <span style="color: #BA2121">&#39;m--&#39;</span>, t, L, <span style="color: #BA2121">&#39;k--&#39;</span>)
+plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;Year&#39;</span>)
+plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;Numbers of hares and lynx&#39;</span>)
+plt<span style="color: #666666">.</span>axis([<span style="color: #666666">1900</span>, <span style="color: #666666">1920</span>, <span style="color: #666666">0</span>, <span style="color: #666666">140</span>])
+plt<span style="color: #666666">.</span>title(<span style="color: #BA2121">r&#39;Population of hares and lynx 1900-1920 (x1000)&#39;</span>)
+plt<span style="color: #666666">.</span>legend((<span style="color: #BA2121">&#39;H_e&#39;</span>, <span style="color: #BA2121">&#39;L_e&#39;</span>, <span style="color: #BA2121">&#39;H&#39;</span>, <span style="color: #BA2121">&#39;L&#39;</span>), loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;upper left&#39;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&#39;Hudson_Bay_sim.pdf&#39;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&#39;Hudson_Bay_sim.png&#39;</span>)
+plt<span style="color: #666666">.</span>show()
 </pre></div>
 
 </div>

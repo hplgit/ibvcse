@@ -18,8 +18,11 @@ system doconce slides_html $name doconce --nav_button=text
 system doconce format html $name --html_style=bloodish --html_output=${name}-1 $comments
 system doconce split_html ${name}-1 --method=space10
 
-system doconce format html $name --html_output=${name}-reveal $comments --pygments_html_style=native --keep_pygments_html_bg
-system doconce slides_html ${name}-reveal reveal --html_slide_theme=darkgray
+system doconce format html $name --html_output=${name}-reveal-dark $comments --pygments_html_style=native --keep_pygments_html_bg
+system doconce slides_html ${name}-reveal-dark reveal --html_slide_theme=darkgray
+
+system doconce format html $name --html_output=${name}-reveal $comments --keep_pygments_html_bg
+system doconce slides_html ${name}-reveal reveal --html_slide_theme=simple
 
 system doconce format ipynb $name $comments
 
