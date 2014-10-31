@@ -57,12 +57,18 @@ div { text-align: justify; text-justify: inter-word; }
 {'highest level': 2,
  'sections': [(' Overarching questions ', 2, None, '___sec0'),
               (' How to teach computing in biology? ', 2, None, '___sec1'),
-              (' Current status ', 2, None, '___sec2'),
-              (' Possible pilot project ', 2, None, '___sec3'),
+              (' Current status: CSE is ready for biology ',
+               2,
+               None,
+               '___sec2'),
+              (' Suggested pilot project: Oct 2014 - Oct 2015 ',
+               2,
+               None,
+               '___sec3'),
               (' The pedagogical framework ', 2, None, '___sec4'),
               (' Example 1: ecoli lab experiment ', 2, None, '___sec5'),
               (' Visualize data ', 2, None, '___sec6'),
-              (' Concepts that are implicitly introduced ',
+              (' Concepts must be introduced implicitly in a structured way ',
                2,
                None,
                '___sec7'),
@@ -77,46 +83,56 @@ div { text-align: justify; text-justify: inter-word; }
                None,
                '___sec14'),
               (' Discuss the nature of such a model ', 2, None, '___sec15'),
-              (' Adding model complexity: Predator-Prey model from ecology ',
+              (' Discuss the limitations of such a model ',
                2,
                None,
                '___sec16'),
-              (' Case study from Hudson bay ', 2, None, '___sec17'),
-              (' Hudson bay data ', 2, None, '___sec18'),
-              (' Plotting the data ', 2, None, '___sec19'),
-              (' Hares and lynx in Hudson bay from 1900 to 1920 ',
+              (' The pedagogical template (to be iterated!) ',
+               2,
+               None,
+               '___sec17'),
+              (' Technology for documenting cases ', 2, None, '___sec18'),
+              (' Immediate tasks ', 2, None, '___sec19'),
+              (' Adding model complexity: Predator-Prey model from ecology ',
                2,
                None,
                '___sec20'),
-              (' Why now create a computer model for the hare and lynx populations? ',
-               2,
-               None,
-               '___sec21'),
-              (' The traditional (top-down) approach ', 2, None, '___sec22'),
-              (" The ``new'' discrete bottom-up approach ",
-               2,
-               None,
-               '___sec23'),
-              (' Basic (computer-friendly) mathematics notation ',
+              (' Case study from Hudson bay ', 2, None, '___sec21'),
+              (' Hudson bay data ', 2, None, '___sec22'),
+              (' Plotting the data ', 2, None, '___sec23'),
+              (' Hares and lynx in Hudson bay from 1900 to 1920 ',
                2,
                None,
                '___sec24'),
-              (' Basic dynamics of the population of hares ',
+              (' Why now create a computer model for the hare and lynx populations? ',
                2,
                None,
                '___sec25'),
-              (' Basic dynamics of the population of lynx ',
+              (' The traditional (top-down) approach ', 2, None, '___sec26'),
+              (" The ``new'' discrete bottom-up approach ",
                2,
                None,
-               '___sec26'),
-              (' Evolution equations ', 2, None, '___sec27'),
-              (' Adapt the model to the Hudson Bay case ',
+               '___sec27'),
+              (' Basic (computer-friendly) mathematics notation ',
                2,
                None,
                '___sec28'),
-              (' The program ', 2, None, '___sec29'),
-              (' The plot ', 2, None, '___sec30'),
-              (' Other examples ', 2, None, '___sec31')]}
+              (' Basic dynamics of the population of hares ',
+               2,
+               None,
+               '___sec29'),
+              (' Basic dynamics of the population of lynx ',
+               2,
+               None,
+               '___sec30'),
+              (' Evolution equations ', 2, None, '___sec31'),
+              (' Adapt the model to the Hudson Bay case ',
+               2,
+               None,
+               '___sec32'),
+              (' The program ', 2, None, '___sec33'),
+              (' The plot ', 2, None, '___sec34'),
+              (' Other examples ', 2, None, '___sec35')]}
 end of tocinfo -->
 
 <body>
@@ -141,58 +157,29 @@ MathJax.Hub.Config({
 <a name="part0030"></a>
 <!-- !split -->
 
-<h2>The program  <a name="___sec29"></a></h2>
+<h2>Basic dynamics of the population of hares  <a name="___sec29"></a></h2>
 
 <p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
-<!-- begin verbatim block  pypro-->
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
+The population of hares evolves due to births and deaths exactly as a bacteria population:
 
-def solver(m, H0, L0, dt, a, b, c, d, t0):
-    &quot;&quot;&quot;Solve the difference equations for H and L over m years
-    with time step dt (measured in years.&quot;&quot;&quot;
+$$
+\Delta H = a \Delta t H^n
+$$
 
-    num_intervals = int(m/float(dt))
-    t = np.linspace(t0, t0 + m, num_intervals+1)
-    H = np.zeros(t.size)
-    L = np.zeros(t.size)
+However, hares have an additional loss in the population because
+they are eaten by lynx.
+All the hares and lynx can form
+\( H\cdot L \) pairs in total. When such pairs meet during a time
+interval \( \Delta t \), there is some
+small probablity that the lynx will eat the hare.
+So in fraction \( b\Delta t HL \), the lynx eat hares. This
+loss of hares and must be accounted for:
+subtracted in the equation for hares:
 
-    print 'Init:', H0, L0, dt
-    H[0] = H0
-    L[0] = L0
-
-    for n in range(0, len(t)-1):
-        H[n+1] = H[n] + a*dt*H[n] - b*dt*H[n]*L[n]
-        L[n+1] = L[n] + d*dt*H[n]*L[n] - c*dt*L[n]
-    return H, L, t
-
-# Load in data file
-data = np.loadtxt('Hudson_Bay.csv', delimiter=',', skiprows=1)
-# Make arrays containing x-axis and hares and lynx populations
-t_e = data[:,0]
-H_e = data[:,1]
-L_e = data[:,2]
-
-# Simulate using the model
-H, L, t = solver(m=20, H0=34.91, L0=3.857, dt=0.1,
-                 a=0.4807, b=0.02482, c=0.9272, d=0.02756,
-                 t0=1900)
-
-# Visualize simulations and data
-plt.plot(t_e, H_e, 'b-+', t_e, L_e, 'r-o', t, H, 'm--', t, L, 'k--')
-plt.xlabel('Year')
-plt.ylabel('Numbers of hares and lynx')
-plt.axis([1900, 1920, 0, 140])
-plt.title(r'Population of hares and lynx 1900-1920 (x1000)')
-plt.legend(('H_e', 'L_e', 'H', 'L'), loc='upper left')
-plt.savefig('Hudson_Bay_sim.pdf')
-plt.savefig('Hudson_Bay_sim.png')
-plt.show()
-</code></pre>
-<!-- end verbatim block -->
+$$ \Delta H = a\Delta t H^n - b \Delta t H^nL^n$$
 </div>
 
 

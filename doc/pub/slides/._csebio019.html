@@ -57,12 +57,18 @@ div { text-align: justify; text-justify: inter-word; }
 {'highest level': 2,
  'sections': [(' Overarching questions ', 2, None, '___sec0'),
               (' How to teach computing in biology? ', 2, None, '___sec1'),
-              (' Current status ', 2, None, '___sec2'),
-              (' Possible pilot project ', 2, None, '___sec3'),
+              (' Current status: CSE is ready for biology ',
+               2,
+               None,
+               '___sec2'),
+              (' Suggested pilot project: Oct 2014 - Oct 2015 ',
+               2,
+               None,
+               '___sec3'),
               (' The pedagogical framework ', 2, None, '___sec4'),
               (' Example 1: ecoli lab experiment ', 2, None, '___sec5'),
               (' Visualize data ', 2, None, '___sec6'),
-              (' Concepts that are implicitly introduced ',
+              (' Concepts must be introduced implicitly in a structured way ',
                2,
                None,
                '___sec7'),
@@ -77,46 +83,56 @@ div { text-align: justify; text-justify: inter-word; }
                None,
                '___sec14'),
               (' Discuss the nature of such a model ', 2, None, '___sec15'),
-              (' Adding model complexity: Predator-Prey model from ecology ',
+              (' Discuss the limitations of such a model ',
                2,
                None,
                '___sec16'),
-              (' Case study from Hudson bay ', 2, None, '___sec17'),
-              (' Hudson bay data ', 2, None, '___sec18'),
-              (' Plotting the data ', 2, None, '___sec19'),
-              (' Hares and lynx in Hudson bay from 1900 to 1920 ',
+              (' The pedagogical template (to be iterated!) ',
+               2,
+               None,
+               '___sec17'),
+              (' Technology for documenting cases ', 2, None, '___sec18'),
+              (' Immediate tasks ', 2, None, '___sec19'),
+              (' Adding model complexity: Predator-Prey model from ecology ',
                2,
                None,
                '___sec20'),
-              (' Why now create a computer model for the hare and lynx populations? ',
-               2,
-               None,
-               '___sec21'),
-              (' The traditional (top-down) approach ', 2, None, '___sec22'),
-              (" The ``new'' discrete bottom-up approach ",
-               2,
-               None,
-               '___sec23'),
-              (' Basic (computer-friendly) mathematics notation ',
+              (' Case study from Hudson bay ', 2, None, '___sec21'),
+              (' Hudson bay data ', 2, None, '___sec22'),
+              (' Plotting the data ', 2, None, '___sec23'),
+              (' Hares and lynx in Hudson bay from 1900 to 1920 ',
                2,
                None,
                '___sec24'),
-              (' Basic dynamics of the population of hares ',
+              (' Why now create a computer model for the hare and lynx populations? ',
                2,
                None,
                '___sec25'),
-              (' Basic dynamics of the population of lynx ',
+              (' The traditional (top-down) approach ', 2, None, '___sec26'),
+              (" The ``new'' discrete bottom-up approach ",
                2,
                None,
-               '___sec26'),
-              (' Evolution equations ', 2, None, '___sec27'),
-              (' Adapt the model to the Hudson Bay case ',
+               '___sec27'),
+              (' Basic (computer-friendly) mathematics notation ',
                2,
                None,
                '___sec28'),
-              (' The program ', 2, None, '___sec29'),
-              (' The plot ', 2, None, '___sec30'),
-              (' Other examples ', 2, None, '___sec31')]}
+              (' Basic dynamics of the population of hares ',
+               2,
+               None,
+               '___sec29'),
+              (' Basic dynamics of the population of lynx ',
+               2,
+               None,
+               '___sec30'),
+              (' Evolution equations ', 2, None, '___sec31'),
+              (' Adapt the model to the Hudson Bay case ',
+               2,
+               None,
+               '___sec32'),
+              (' The program ', 2, None, '___sec33'),
+              (' The plot ', 2, None, '___sec34'),
+              (' Other examples ', 2, None, '___sec35')]}
 end of tocinfo -->
 
 <body>
@@ -141,43 +157,25 @@ MathJax.Hub.Config({
 <a name="part0019"></a>
 <!-- !split -->
 
-<h2>Hudson bay data  <a name="___sec18"></a></h2>
+<h2>Technology for documenting cases  <a name="___sec18"></a></h2>
 
 <p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
 
-<p>
-<table border="1">
-<thead>
-<tr><th align="center">Year</th> <th align="center">Hares (x1000)</th> <th align="center">Lynx (x1000)</th> </tr>
-</thead>
-<tbody>
-<tr><td align="left">   1900    </td> <td align="right">   30.0             </td> <td align="right">   4.0             </td> </tr>
-<tr><td align="left">   1901    </td> <td align="right">   47.2             </td> <td align="right">   6.1             </td> </tr>
-<tr><td align="left">   1902    </td> <td align="right">   70.2             </td> <td align="right">   9.8             </td> </tr>
-<tr><td align="left">   1903    </td> <td align="right">   77.4             </td> <td align="right">   35.2            </td> </tr>
-<tr><td align="left">   1904    </td> <td align="right">   36.3             </td> <td align="right">   59.4            </td> </tr>
-<tr><td align="left">   1905    </td> <td align="right">   20.6             </td> <td align="right">   41.7            </td> </tr>
-<tr><td align="left">   1906    </td> <td align="right">   18.1             </td> <td align="right">   19.0            </td> </tr>
-<tr><td align="left">   1907    </td> <td align="right">   21.4             </td> <td align="right">   13.0            </td> </tr>
-<tr><td align="left">   1908    </td> <td align="right">   22.0             </td> <td align="right">   8.3             </td> </tr>
-<tr><td align="left">   1909    </td> <td align="right">   25.4             </td> <td align="right">   9.1             </td> </tr>
-<tr><td align="left">   1910    </td> <td align="right">   27.1             </td> <td align="right">   7.4             </td> </tr>
-<tr><td align="left">   1911    </td> <td align="right">   40.3             </td> <td align="right">   8.0             </td> </tr>
-<tr><td align="left">   1912    </td> <td align="right">   57               </td> <td align="right">   12.3            </td> </tr>
-<tr><td align="left">   1913    </td> <td align="right">   76.6             </td> <td align="right">   19.5            </td> </tr>
-<tr><td align="left">   1914    </td> <td align="right">   52.3             </td> <td align="right">   45.7            </td> </tr>
-<tr><td align="left">   1915    </td> <td align="right">   19.5             </td> <td align="right">   51.1            </td> </tr>
-<tr><td align="left">   1916    </td> <td align="right">   11.2             </td> <td align="right">   29.7            </td> </tr>
-<tr><td align="left">   1917    </td> <td align="right">   7.6              </td> <td align="right">   15.8            </td> </tr>
-<tr><td align="left">   1918    </td> <td align="right">   14.6             </td> <td align="right">   9.7             </td> </tr>
-<tr><td align="left">   1919    </td> <td align="right">   16.2             </td> <td align="right">   10.1            </td> </tr>
-<tr><td align="left">   1920    </td> <td align="right">   24.7             </td> <td align="right">   8.6             </td> </tr>
-</tbody>
-</table>
-
+<ul>
+ <li> Documentation: slides in the doconce format with extra notes<br />
+   (can compile with/without notes)</li>
+ <li> Realistic goal: write out the slides for a gentle book on biocomputing examples</li>
+ <li> The biological case is in a separate file that the students can work
+   with as an IPython notebook</li>
+ <li> Problem: not much basic literature exists</li>
+ <li> Cases must be linked in a learning graph:<br />
+   <em>I want to do nerve cell modeling, but how to progress to this stage?</em></li>
+ <li> Make a list of concepts and where concepts are trained</li>
+ <li> Think of each case as a <em>separate module</em></li>
+</ul>
 </div>
 
 
